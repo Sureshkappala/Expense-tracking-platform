@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Budget Planner — Stackly Dashboard</title>
+  <meta name="description" content="Set category allocations, monitor 50/30/20 pacing, and prevent overspending in Stackly User Dashboard.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item active">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Monthly Budget Planner</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Envelopes, 50/30/20 pacing, and thresholds</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="openBudgetModalBtn" class="btn btn-primary btn-sm">⚙ Adjust Budget Limit</button>
+          
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <!-- Master Budget Progress Card -->
+        <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:2rem; margin-bottom:2rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+            <div>
+              <div class="section-pill" style="margin-bottom:0.4rem;">Monthly Pacing Watch</div>
+              <h3 style="font-size:1.4rem; font-weight:800; color:var(--navy-900);">September Budget Status</h3>
+              <p style="color:var(--text-muted); font-size:0.9rem;">$3,240.00 spent of your $4,500.00 total monthly spending cap.</p>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:1.85rem; font-weight:800; color:var(--amber-600);" class="tabular-nums">72% Used</div>
+              <span style="font-size:0.85rem; color:var(--emerald-600); font-weight:700;">$1,260.00 remaining buffer</span>
+            </div>
+          </div>
+
+          <div class="goal-progress-bar-wrap" style="height:14px; margin-bottom:1rem;">
+            <div class="goal-progress-fill" style="width:72%; background:linear-gradient(90deg, var(--emerald-500) 0%, var(--amber-500) 70%, var(--rose-500) 100%);"></div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--text-muted);">
+            <span>Day 21 of 30 (70% of Month Elapsed)</span>
+            <span style="font-weight:600; color:var(--navy-900);">Pacing: Perfectly on Track</span>
+          </div>
+        </div>
+
+        <!-- 50/30/20 Rule Analysis Section -->
+        <div style="margin-bottom:2rem;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--navy-900); margin-bottom:1rem;">50 / 30 / 20 Framework Distribution</h3>
+          <div class="metrics-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <!-- Needs -->
+            <div class="metric-card" style="min-height:220px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                  <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Needs (50%)</span>
+                  <span style="font-size:1.25rem;">🏠</span>
+                </div>
+                <div style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:0.25rem;">$2,120.00</div>
+                <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.4; min-height:2.6rem;">Rent, utilities, basic groceries, and essential health insurance.</p>
+              </div>
+              <div style="margin-top:auto;">
+                <div class="goal-progress-bar-wrap" style="height:8px; margin-bottom:0.5rem;">
+                  <div class="goal-progress-fill" style="width:65%; background:var(--emerald-500);"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted);">
+                  <span>Cap: $3,325.00</span>
+                  <span style="color:var(--emerald-600); font-weight:700;">Healthy (63.7%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wants -->
+            <div class="metric-card" style="min-height:220px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                  <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Wants (30%)</span>
+                  <span style="font-size:1.25rem;">☕</span>
+                </div>
+                <div style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:0.25rem;">$1,120.00</div>
+                <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.4; min-height:2.6rem;">Dining out, weekend leisure, retail shopping, and streaming subscriptions.</p>
+              </div>
+              <div style="margin-top:auto;">
+                <div class="goal-progress-bar-wrap" style="height:8px; margin-bottom:0.5rem;">
+                  <div class="goal-progress-fill" style="width:56%; background:var(--amber-500);"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted);">
+                  <span>Cap: $1,995.00</span>
+                  <span style="color:var(--amber-600); font-weight:700;">Within Limit (56.1%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Savings -->
+            <div class="metric-card" style="min-height:220px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                  <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Savings & Debt (20%)</span>
+                  <span style="font-size:1.25rem;">🛡️</span>
+                </div>
+                <div style="font-size:1.6rem; font-weight:800; color:var(--teal-600); margin-bottom:0.25rem;">$3,410.00</div>
+                <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.4; min-height:2.6rem;">High-yield emergency vaults, index ETF contributions, and debt paydown.</p>
+              </div>
+              <div style="margin-top:auto;">
+                <div class="goal-progress-bar-wrap" style="height:8px; margin-bottom:0.5rem;">
+                  <div class="goal-progress-fill" style="width:100%; background:var(--teal-500);"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted);">
+                  <span>Target: $1,330.00</span>
+                  <span style="color:var(--emerald-600); font-weight:700;">Supercharged (256%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Allocations Grid -->
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Category Envelopes & Quotas</h3>
+            <span style="font-size:0.85rem; color:var(--text-muted);">8 Active Envelopes</span>
+          </div>
+
+          <div class="categories-grid">
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                <span style="font-weight:700; color:var(--navy-900);">Food & Dining</span>
+                <span class="tabular-nums font-bold" style="color:var(--rose-600);">$580 / $650</span>
+              </div>
+              <div class="goal-progress-bar-wrap" style="height:7px; margin-bottom:0.4rem;">
+                <div class="goal-progress-fill" style="width:89%; background:var(--rose-500);"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-muted);">
+                <span>89% consumed</span>
+                <span style="color:var(--rose-600); font-weight:600;">$70 buffer left</span>
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                <span style="font-weight:700; color:var(--navy-900);">Transportation</span>
+                <span class="tabular-nums font-bold" style="color:var(--emerald-600);">$185 / $350</span>
+              </div>
+              <div class="goal-progress-bar-wrap" style="height:7px; margin-bottom:0.4rem;">
+                <div class="goal-progress-fill" style="width:53%; background:var(--emerald-500);"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-muted);">
+                <span>53% consumed</span>
+                <span style="color:var(--emerald-600); font-weight:600;">$165 buffer left</span>
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                <span style="font-weight:700; color:var(--navy-900);">Shopping</span>
+                <span class="tabular-nums font-bold" style="color:var(--amber-600);">$310 / $450</span>
+              </div>
+              <div class="goal-progress-bar-wrap" style="height:7px; margin-bottom:0.4rem;">
+                <div class="goal-progress-fill" style="width:68%; background:var(--amber-500);"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-muted);">
+                <span>68% consumed</span>
+                <span style="color:var(--amber-600); font-weight:600;">$140 buffer left</span>
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                <span style="font-weight:700; color:var(--navy-900);">Utilities & Bills</span>
+                <span class="tabular-nums font-bold" style="color:var(--emerald-600);">$380 / $500</span>
+              </div>
+              <div class="goal-progress-bar-wrap" style="height:7px; margin-bottom:0.4rem;">
+                <div class="goal-progress-fill" style="width:76%; background:var(--emerald-500);"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-muted);">
+                <span>76% consumed</span>
+                <span style="color:var(--emerald-600); font-weight:600;">$120 buffer left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Budget Modal -->
+  <div id="setBudgetModal" class="modal-backdrop" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:var(--radius-xl); padding:2rem; max-width:440px; width:90%;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.2rem; font-weight:800; color:var(--navy-900); margin:0;">Adjust Budget Target</h3>
+        <button id="closeBudgetModalBtn" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+      <form id="dashSetBudgetForm">
+        <div class="form-group">
+          <label for="newBudgetInp" class="form-label">Monthly Spending Cap ($ USD)</label>
+          <input type="number" id="newBudgetInp" class="form-input" value="4500" min="500" step="50" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Budget Target</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('setBudgetModal');
+      const openBtn = document.getElementById('openBudgetModalBtn');
+      const closeBtn = document.getElementById('closeBudgetModalBtn');
+      const form = document.getElementById('dashSetBudgetForm');
+
+      if (openBtn) openBtn.addEventListener('click', () => modal.style.display = 'flex');
+      if (closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const val = parseFloat(document.getElementById('newBudgetInp').value);
+          if (isNaN(val) || val <= 0) return;
+          const b = StacklyStore.getBudget();
+          b.monthlyBudget = val;
+          StacklyStore.setBudget(b);
+          showToast(`Monthly budget limit updated to $${val.toLocaleString()}!`, 'success');
+          modal.style.display = 'none';
+          setTimeout(() => window.location.reload(), 900);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

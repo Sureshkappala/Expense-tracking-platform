@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Free Account — Stackly</title>
+  <meta name="description" content="Sign up for Stackly and start mastering your personal finances, expense allocations, and savings targets today.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body style="background-color: var(--bg-secondary);">
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+
+  <main class="auth-wrapper">
+    <!-- Back to Home navigation -->
+    <div class="back-to-home-wrapper">
+      <a href="index.html" class="back-to-home-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        Back to Home
+      </a>
+    </div>
+
+    <div class="auth-card">
+      <div style="text-align:center; margin-bottom:1.75rem;">
+        <a href="index.html" class="brand-logo" style="justify-content:center; margin-bottom:1rem;" aria-label="Stackly Home">
+          <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <h1 style="font-size:1.75rem; font-weight:800; color:var(--navy-900); margin-bottom:0.35rem;">Create Account</h1>
+        <p style="color:var(--text-muted); font-size:0.9rem;">Register to start tracking outlays and building resilient savings.</p>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <!-- Account Type Selector -->
+        <div class="form-group">
+          <label for="regAccountType" class="form-label">Account Workspace Type *</label>
+          <select id="regAccountType" class="form-select" required>
+            <option value="individual">Personal Financial Ledger</option>
+            <option value="household">Household / Family Shared Budget</option>
+            <option value="business">Freelancer / Sole Trader Tracking</option>
+          </select>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="regFullName" class="form-label">Full Name *</label>
+          <input type="text" id="regFullName" name="fullName" class="form-input" placeholder="e.g. Jordan Mitchell" required>
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Letters and spaces only (no numbers).</span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="regEmail" class="form-label">Email Address *</label>
+          <input type="email" id="regEmail" name="email" class="form-input" placeholder="jordan@example.com" required>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-group">
+          <label for="regMobile" class="form-label">Mobile Number *</label>
+          <input type="tel" id="regMobile" name="mobile" class="form-input" placeholder="+1 (555) 019-2834" required>
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Used for critical budget overspending SMS alerts.</span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="regPassword" class="form-label">Password *</label>
+          <div class="password-input-wrap">
+            <input type="password" id="regPassword" name="password" class="form-input" placeholder="Minimum 8 characters" required>
+            <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Must include letters & numbers (min 8 chars).</span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="regConfirmPassword" class="form-label">Confirm Password *</label>
+          <div class="password-input-wrap">
+            <input type="password" id="regConfirmPassword" name="confirmPassword" class="form-input" placeholder="Re-enter password" required>
+            <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="form-group" style="margin-bottom:1.75rem;">
+          <label class="form-check">
+            <input type="checkbox" name="terms" required>
+            <span>I agree to the <a href="about.html#terms" style="color:var(--teal-600); text-decoration:underline;">Terms of Service</a> & <a href="about.html#security" style="color:var(--teal-600); text-decoration:underline;">Privacy Policy</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-emerald btn-lg" style="width:100%;">Create My Free Account →</button>
+      </form>
+
+      <div style="text-align:center; margin-top:1.75rem; font-size:0.9rem; color:var(--text-secondary);">
+        Already have an account? <a href="login.html" style="color:var(--teal-600); font-weight:700;">Sign in here →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

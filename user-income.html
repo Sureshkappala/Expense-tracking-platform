@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inflow & Salary Stream — Stackly Dashboard</title>
+  <meta name="description" content="Manage recurring salary deposits, freelance retainers, and income cashflow in Stackly User Dashboard.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item active">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Inflow & Salary Tracking</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Monitor and record all revenue channels</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <a href="user-add-expense.html" class="btn btn-primary btn-sm">+ Quick Expense</a>
+          
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <!-- Quick Metrics -->
+        <div class="metrics-grid" style="margin-bottom:2rem;">
+          <div class="metric-card card-income">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Monthly Inflow</span>
+              <div class="metric-card-icon">📈</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">$6,650.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ +22.4%</span>
+              <span>vs 3-month baseline</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Primary Payroll</span>
+              <div class="metric-card-icon">🏢</div>
+            </div>
+            <div class="metric-card-value" style="font-size:1.5rem;">Salary (Tech Corp)</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">78.2% Share</span>
+              <span>$5,200.00 / mo</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Secondary Streams</span>
+              <div class="metric-card-icon">💼</div>
+            </div>
+            <div class="metric-card-value tabular-nums">$1,450.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">Freelance Sprint</span>
+              <span>2 active projects</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Net Monthly Surplus</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--teal-600);">$5,653.91</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">51.2% Rate</span>
+              <span>surplus over outlays</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layout: Form on Left, History Table on Right -->
+        <div style="display:grid; grid-template-columns: 1fr 1.35fr; gap:2rem; align-items:start;" class="contact-layout">
+          <!-- Log Income Form -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:2rem; box-shadow:var(--shadow-md);" class="fin-card-box">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--navy-900); margin-bottom:1.25rem;">Log Incoming Funds</h3>
+            <form id="addIncomeForm" novalidate>
+              <div class="form-group">
+                <label for="incomeSource" class="form-label">Income Source / Employer *</label>
+                <input type="text" id="incomeSource" name="incomeSource" class="form-input" placeholder="e.g. Apex Tech Corp Payroll" required>
+                <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Letters and spaces only.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="incomeAmount" class="form-label">Amount ($ USD) *</label>
+                <input type="number" id="incomeAmount" name="amount" step="0.01" min="0.01" class="form-input" placeholder="e.g. 5200.00" required>
+              </div>
+
+              <div class="form-group">
+                <label for="incomeCategory" class="form-label">Income Category *</label>
+                <select id="incomeCategory" name="incomeCategory" class="form-select" required>
+                  <option value="Salary">Full-Time Salary</option>
+                  <option value="Freelance">Freelance Contract</option>
+                  <option value="Investment">Investment Yield / Dividends</option>
+                  <option value="Bonus">Bonus & Commission</option>
+                  <option value="Other">Other Revenue</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="incomeDate" class="form-label">Deposit Date *</label>
+                <input type="date" id="incomeDate" name="date" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="incomeNotes" class="form-label">Notes / Reference (Optional)</label>
+                <textarea id="incomeNotes" name="notes" class="form-textarea" rows="2" placeholder="e.g. Direct deposit ACH reference #8812"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">Record Inflow Entry</button>
+            </form>
+          </div>
+
+          <!-- Confirmed Income Streams Table -->
+          <div class="transactions-card">
+            <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center;">
+              <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Confirmed Inflows</h3>
+              <span class="trend-badge trend-positive">Active Deposits</span>
+            </div>
+            <div class="table-responsive">
+              <table class="fin-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Source</th>
+                    <th>Channel</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="incomeHistoryBody">
+                  <tr>
+                    <td>2026-09-01</td>
+                    <td><strong>Tech Corp Direct Deposit</strong></td>
+                    <td><span class="category-tag">Salary</span></td>
+                    <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">+$5,200.00</td>
+                    <td><span class="trend-badge trend-positive">Cleared</span></td>
+                  </tr>
+                  <tr>
+                    <td>2026-08-26</td>
+                    <td><strong>Fintech Sprint Retainer</strong></td>
+                    <td><span class="category-tag">Freelance</span></td>
+                    <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">+$1,450.00</td>
+                    <td><span class="trend-badge trend-positive">Cleared</span></td>
+                  </tr>
+                  <tr>
+                    <td>2026-08-15</td>
+                    <td><strong>Dividend Quarterly Payout</strong></td>
+                    <td><span class="category-tag">Investment</span></td>
+                    <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">+$380.00</td>
+                    <td><span class="trend-badge trend-positive">Cleared</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInp = document.getElementById('incomeDate');
+      if (dateInp) dateInp.value = new Date().toISOString().split('T')[0];
+
+      // Hook form to StacklyStore
+      const form = document.getElementById('addIncomeForm');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const source = document.getElementById('incomeSource').value.trim();
+          const amount = parseFloat(document.getElementById('incomeAmount').value);
+          const cat = document.getElementById('incomeCategory').value;
+          const date = document.getElementById('incomeDate').value;
+          const notes = document.getElementById('incomeNotes').value.trim();
+
+          if (!source || isNaN(amount) || amount <= 0 || !date) {
+            showToast('Please verify all required fields.', 'error');
+            return;
+          }
+
+          StacklyStore.addTransaction({
+            name: source,
+            category: 'Income',
+            amount: amount,
+            date: date,
+            method: 'Bank Transfer',
+            type: 'income',
+            notes: notes || `${cat} deposit`
+          });
+
+          showToast(`+$${amount.toLocaleString()} Inflow recorded successfully!`, 'success');
+          form.reset();
+          if (dateInp) dateInp.value = new Date().toISOString().split('T')[0];
+        });
+      }
+
+      const bellBtn = document.getElementById('notifBellBtn');
+      if (bellBtn) {
+        bellBtn.addEventListener('click', () => {
+          showToast('🔔 Inflow alert: All salary deposits verified for September 2026.', 'success');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

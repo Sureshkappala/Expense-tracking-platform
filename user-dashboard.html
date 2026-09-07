@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Financial Dashboard — Stackly</title>
+  <meta name="description" content="Personal expense and cashflow dashboard for active budgeting and savings milestone management on Stackly.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR (DESKTOP + OFF-CANVAS MOBILE DRAWER) -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item active">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <!-- Mobile Sidebar Toggle Hamburger -->
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Financial Overview</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);" id="currentDateBadge">September 2026</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <a href="user-add-expense.html" class="btn btn-primary btn-sm">+ Quick Expense</a>
+          
+          <!-- Notifications Bell -->
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <!-- Avatar -->
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <!-- 4 Key Stat Cards -->
+        <div class="metrics-grid" style="margin-bottom:2rem;">
+          <div class="metric-card card-balance">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Balance</span>
+              <div class="metric-card-icon">💳</div>
+            </div>
+            <div class="metric-card-value tabular-nums" id="dashTotalBalance">$14,250.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ +8.4%</span>
+              <span>liquid checking & savings</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-income">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Monthly Income</span>
+              <div class="metric-card-icon">📈</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);" id="dashTotalIncome">$6,650.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ Verified</span>
+              <span>2 deposit entries</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-expenses">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Monthly Expenses</span>
+              <div class="metric-card-icon">📉</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--amber-600);" id="dashTotalExpenses">$3,240.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-negative">72% Budget</span>
+              <span>$1,260 buffer left</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Net Monthly Savings</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--teal-600);" id="dashTotalSavings">$3,410.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">51.2% Rate</span>
+              <span>retained for goals</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Row: Income vs Expenses Chart + Category Donut -->
+        <div style="display:grid; grid-template-columns: 1.35fr 1fr; gap:2rem; margin-bottom:2rem; align-items:start;" class="contact-layout">
+          <!-- Left: Cashflow Chart -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+              <div>
+                <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Cashflow Trajectory</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Compare inflow against expenditure</span>
+              </div>
+              <div class="period-switch">
+                <button class="period-btn" data-period="weekly">Week</button>
+                <button class="period-btn active" data-period="monthly">Month</button>
+                <button class="period-btn" data-period="yearly">Year</button>
+              </div>
+            </div>
+            <div style="width:100%; height:260px; position:relative;">
+              <canvas id="incomeExpenseChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Right: Category Donut & Budget Watch -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Spending by Category</h3>
+              <a href="user-expenses.html" style="font-size:0.8rem; color:var(--teal-600); font-weight:600;">Details →</a>
+            </div>
+            <div style="width:100%; height:200px; position:relative; margin-bottom:1rem;">
+              <canvas id="categoryDonutChart"></canvas>
+            </div>
+            <div style="padding-top:1rem; border-top:1px solid var(--border-light); font-size:0.85rem; display:flex; justify-content:space-between;">
+              <span>Monthly Budget Used:</span>
+              <strong style="color:var(--amber-600);">72% ($3,240 / $4,500)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Recent Transactions Table + Savings Goals Quick Stash -->
+        <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:2rem; align-items:start;" class="contact-layout">
+          <!-- Recent Transactions -->
+          <div class="transactions-card">
+            <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center;">
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900);">Recent Transactions</h4>
+              <a href="user-expenses.html" class="btn btn-outline btn-sm">Full Ledger</a>
+            </div>
+            <div class="table-responsive">
+              <table class="fin-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody id="dashTxBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Savings Goals Quick View -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900);">Savings Milestone Vaults</h4>
+              <a href="user-savings-goals.html" style="font-size:0.8rem; color:var(--teal-600); font-weight:600;">Manage →</a>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:1.25rem;" id="dashGoalsList">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sync dynamic store metrics
+      const summary = StacklyStore.calculateSummary();
+      const balEl = document.getElementById('dashTotalBalance');
+      const incEl = document.getElementById('dashTotalIncome');
+      const expEl = document.getElementById('dashTotalExpenses');
+      const savEl = document.getElementById('dashTotalSavings');
+
+      if (balEl) balEl.textContent = `$${summary.totalBalance.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+      if (incEl) incEl.textContent = `$${summary.totalIncome.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+      if (expEl) expEl.textContent = `$${summary.totalExpenses.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+      if (savEl) savEl.textContent = `$${summary.netSavings.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+
+      // Populate recent transactions in dash table
+      const txs = StacklyStore.getTransactions().slice(0, 5);
+      const dashTxTbody = document.getElementById('dashTxBody');
+      if (dashTxTbody) {
+        dashTxTbody.innerHTML = txs.map(t => `
+          <tr>
+            <td style="font-weight:600; color:#0f172a;">${t.date}</td>
+            <td>
+              <div style="font-weight:700; color:#0f172a;">${t.name}</div>
+              <div style="font-size:0.75rem; color:#64748b;">${t.method}</div>
+            </td>
+            <td><span class="section-pill" style="margin-bottom:0; font-size:0.72rem;">${t.category}</span></td>
+            <td class="tx-amount ${t.type === 'expense' ? 'negative' : 'positive'} tabular-nums">
+              ${t.type === 'expense' ? '−$' : '+$'}${parseFloat(t.amount).toFixed(2)}
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Populate savings goals summary
+      const goals = StacklyStore.getGoals().slice(0, 3);
+      const dashGoalsList = document.getElementById('dashGoalsList');
+      if (dashGoalsList) {
+        dashGoalsList.innerHTML = goals.map(g => {
+          const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+          return `
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.88rem; font-weight:700; margin-bottom:0.35rem;">
+                <span>${g.name}</span>
+                <span style="color:var(--emerald-600);">${pct}%</span>
+              </div>
+              <div class="goal-progress-bar-wrap" style="height:7px; margin-bottom:0.3rem;">
+                <div class="goal-progress-fill" style="width:${pct}%;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-muted);">
+                <span>$${g.current.toLocaleString()} saved</span>
+                <span>$${g.target.toLocaleString()} goal</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Notifications Popover Trigger
+      const bellBtn = document.getElementById('notifBellBtn');
+      if (bellBtn) {
+        bellBtn.addEventListener('click', () => {
+          showToast('🔔 Notice: 72% of monthly budget reached. 9 days remaining.', 'warning');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Categories & Taxonomies — Stackly Admin</title>
+  <meta name="description" content="Configure default expense and income categories, icon taxonomies, and budgeting quotas on Stackly Admin.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- MOBILE DRAWER BACKDROP -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Admin Navigation Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="admin-dashboard.html" class="brand-logo" aria-label="Stackly Admin">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Oversight</div>
+        <a href="admin-dashboard.html" class="dash-nav-item">
+          <span>⚡</span> Control Center
+        </a>
+        <a href="admin-users.html" class="dash-nav-item">
+          <span>👥</span> User Management
+        </a>
+        <a href="admin-categories.html" class="dash-nav-item active">
+          <span>🏷️</span> System Categories
+        </a>
+        <a href="admin-transactions.html" class="dash-nav-item">
+          <span>📜</span> Global Ledger
+        </a>
+        <a href="admin-security.html" class="dash-nav-item">
+          <span>🛡️</span> Security & Audit Logs
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--emerald-500); display:grid; place-items:center; font-weight:800; color:#fff;">SU</div>
+          <div>
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff;">Root Admin</div>
+            <div style="font-size:0.75rem; color:var(--emerald-400);">System Operator</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Exit Console
+        </a>
+      </div>
+    </aside>
+
+    <!-- ADMIN MAIN -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Admin Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">System Categories &amp; Taxonomies</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Manage standard classification taxonomy and envelope caps</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="openAddCategoryModalBtn" class="btn btn-primary btn-sm">+ Add Category</button>
+        </div>
+      </header>
+
+      <!-- BODY -->
+      <div class="dashboard-body">
+        <!-- 4 Key Taxonomy Metrics -->
+        <div class="metrics-grid" style="margin-bottom:2rem;">
+          <div class="metric-card card-income">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Active Taxonomies</span>
+              <div class="metric-card-icon">🏷️</div>
+            </div>
+            <div class="metric-card-value tabular-nums">8 Core</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">100% Standardized</span>
+              <span>across all ledgers</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-expenses">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Highest Volume</span>
+              <div class="metric-card-icon">🍽️</div>
+            </div>
+            <div class="metric-card-value" style="font-size:1.4rem;">Food &amp; Dining</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-neutral">32.4% Share</span>
+              <span>of total disbursements</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">System Tagging Accuracy</span>
+              <div class="metric-card-icon">⚡</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">99.8%</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ +0.4%</span>
+              <span>auto-categorization</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">User Envelopes Bound</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--teal-600);">24,190</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">+1,420 this month</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 Category Definition Cards Grid -->
+        <div style="margin-bottom:2.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Global Core Envelopes</h3>
+            <span style="font-size:0.8rem; color:var(--text-muted);">8 Primary Categories</span>
+          </div>
+
+          <div class="categories-grid">
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">🍽️</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">System Core</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Food &amp; Dining</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Groceries, organic markets, restaurants, delivery.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 98% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">🚗</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">System Core</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Transportation</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Fuel, ride shares, transit passes, highway tolls.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 91% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">🛍️</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">System Core</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Shopping</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Apparel, electronics, personal lifestyle goods.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 88% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">⚡</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">System Core</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Utilities &amp; Bills</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Electricity, broadband, mobile cellular, water.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 94% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">🎬</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">Discretionary</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Entertainment</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Cinema, streaming memberships, concerts, events.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 82% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">💊</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">Essential</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Healthcare</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Prescription pharmacy, clinical care, dental.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 76% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">🎓</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">Investment</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Education</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Tuition, e-learning courses, technical books.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 65% of Ledgers
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:1.5rem;">✈️</span>
+                <span class="section-pill" style="margin:0; font-size:0.75rem;">Discretionary</span>
+              </div>
+              <h4 style="font-size:1.1rem; font-weight:700; color:var(--navy-900); margin-bottom:0.25rem;">Travel &amp; Trips</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Airlines, hotel stays, vacation excursions.</p>
+              <div style="margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.8rem; color:var(--emerald-600); font-weight:600;">
+                Active in 71% of Ledgers
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Policy & Spending Envelope Management Table -->
+        <div class="transactions-card">
+          <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Category Governance &amp; Threshold Rules</h3>
+              <span style="font-size:0.8rem; color:var(--text-muted);">System default thresholds applied across all user instances</span>
+            </div>
+            <span class="trend-badge trend-positive">8 Rules Enforced</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Classification</th>
+                  <th>Recommended Benchmark</th>
+                  <th>Alert Threshold</th>
+                  <th>Pacing Status</th>
+                  <th style="text-align:right;">Governance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>🍽️ Food &amp; Dining</strong></td>
+                  <td><span class="category-tag">Needs (50%)</span></td>
+                  <td class="tabular-nums font-bold">$650.00 / mo</td>
+                  <td><span class="trend-badge trend-negative">85% Trigger</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:600;">✓ Active</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Category rules unlocked for Food & Dining.', 'info')" class="btn btn-outline btn-sm">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>🚗 Transportation</strong></td>
+                  <td><span class="category-tag">Needs (50%)</span></td>
+                  <td class="tabular-nums font-bold">$350.00 / mo</td>
+                  <td><span class="trend-badge trend-positive">75% Trigger</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:600;">✓ Active</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Category rules unlocked for Transportation.', 'info')" class="btn btn-outline btn-sm">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>🛍️ Shopping</strong></td>
+                  <td><span class="category-tag">Wants (30%)</span></td>
+                  <td class="tabular-nums font-bold">$450.00 / mo</td>
+                  <td><span class="trend-badge trend-neutral">80% Trigger</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:600;">✓ Active</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Category rules unlocked for Shopping.', 'info')" class="btn btn-outline btn-sm">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>⚡ Utilities &amp; Bills</strong></td>
+                  <td><span class="category-tag">Needs (50%)</span></td>
+                  <td class="tabular-nums font-bold">$500.00 / mo</td>
+                  <td><span class="trend-badge trend-negative">90% Trigger</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:600;">✓ Active</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Category rules unlocked for Utilities.', 'info')" class="btn btn-outline btn-sm">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>🎬 Entertainment</strong></td>
+                  <td><span class="category-tag">Wants (30%)</span></td>
+                  <td class="tabular-nums font-bold">$300.00 / mo</td>
+                  <td><span class="trend-badge trend-neutral">80% Trigger</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:600;">✓ Active</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Category rules unlocked for Entertainment.', 'info')" class="btn btn-outline btn-sm">Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD CATEGORY MODAL -->
+  <div id="addCategoryModal" class="modal-backdrop" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:var(--radius-xl); padding:2rem; max-width:440px; width:90%;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.2rem; font-weight:800; color:var(--navy-900); margin:0;">Create Category Taxonomy</h3>
+        <button id="closeAddCategoryModalBtn" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+      <form id="addCategoryForm">
+        <div class="form-group">
+          <label for="newCatName" class="form-label">Category Name *</label>
+          <input type="text" id="newCatName" class="form-input" placeholder="e.g. Subscriptions & Software" required>
+        </div>
+        <div class="form-group">
+          <label for="newCatIcon" class="form-label">Icon Emoji *</label>
+          <input type="text" id="newCatIcon" class="form-input" placeholder="e.g. 💻" required>
+        </div>
+        <div class="form-group">
+          <label for="newCatCap" class="form-label">Default Monthly Target ($ USD)</label>
+          <input type="number" id="newCatCap" class="form-input" placeholder="e.g. 250.00">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Create Taxonomy</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('addCategoryModal');
+      const openBtn = document.getElementById('openAddCategoryModalBtn');
+      const closeBtn = document.getElementById('closeAddCategoryModalBtn');
+      const form = document.getElementById('addCategoryForm');
+
+      if (openBtn) openBtn.addEventListener('click', () => modal.style.display = 'flex');
+      if (closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('newCatName').value.trim();
+          if (!name) return;
+          showToast(`Taxonomy "${name}" created and synced to all ledgers!`, 'success');
+          modal.style.display = 'none';
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

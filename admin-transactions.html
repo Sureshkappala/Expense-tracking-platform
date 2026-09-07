@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Ledger Audits — Stackly Admin</title>
+  <meta name="description" content="Cross-platform transaction verification, settlement logs, and high-value disbursement audits on Stackly Admin.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- MOBILE DRAWER BACKDROP -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Admin Navigation Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="admin-dashboard.html" class="brand-logo" aria-label="Stackly Admin">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Oversight</div>
+        <a href="admin-dashboard.html" class="dash-nav-item">
+          <span>⚡</span> Control Center
+        </a>
+        <a href="admin-users.html" class="dash-nav-item">
+          <span>👥</span> User Management
+        </a>
+        <a href="admin-categories.html" class="dash-nav-item">
+          <span>🏷️</span> System Categories
+        </a>
+        <a href="admin-transactions.html" class="dash-nav-item active">
+          <span>📜</span> Global Ledger
+        </a>
+        <a href="admin-security.html" class="dash-nav-item">
+          <span>🛡️</span> Security & Audit Logs
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--emerald-500); display:grid; place-items:center; font-weight:800; color:#fff;">SU</div>
+          <div>
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff;">Root Admin</div>
+            <div style="font-size:0.75rem; color:var(--emerald-400);">System Operator</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Exit Console
+        </a>
+      </div>
+    </aside>
+
+    <!-- ADMIN MAIN -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Admin Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Global Ledger Audits</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Real-time stream of validated disbursements across all accounts</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">142,890 Total TXs</span>
+        </div>
+      </header>
+
+      <!-- BODY -->
+      <div class="dashboard-body">
+        <!-- Audit Summary KPIs -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; margin-bottom:1.5rem;">
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.25rem 1.5rem; box-shadow:var(--shadow-sm);">
+            <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.35rem;">Total Audited Volume</div>
+            <div style="font-size:1.6rem; font-weight:900; color:var(--navy-900);">$4,289,150.00</div>
+            <div style="font-size:0.78rem; color:var(--emerald-600); font-weight:600; margin-top:0.35rem;">↑ +12.4% vs last month</div>
+          </div>
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.25rem 1.5rem; box-shadow:var(--shadow-sm);">
+            <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.35rem;">Verified Disbursements</div>
+            <div style="font-size:1.6rem; font-weight:900; color:var(--navy-900);">138,400 <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">TXs</span></div>
+            <div style="font-size:0.78rem; color:var(--emerald-600); font-weight:600; margin-top:0.35rem;">✓ 96.8% auto-cleared</div>
+          </div>
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.25rem 1.5rem; box-shadow:var(--shadow-sm);">
+            <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.35rem;">Flagged Anomalies</div>
+            <div style="font-size:1.6rem; font-weight:900; color:var(--rose-600);">120 <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">TXs</span></div>
+            <div style="font-size:0.78rem; color:var(--rose-500); font-weight:600; margin-top:0.35rem;">⚠️ High risk review needed</div>
+          </div>
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.25rem 1.5rem; box-shadow:var(--shadow-sm);">
+            <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.35rem;">Pending Settlement</div>
+            <div style="font-size:1.6rem; font-weight:900; color:var(--amber-600);">4,370 <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">TXs</span></div>
+            <div style="font-size:0.78rem; color:var(--amber-600); font-weight:600; margin-top:0.35rem;">⏳ Processing batch queue</div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.25rem 1.5rem; margin-bottom:1.5rem; box-shadow:var(--shadow-sm);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; flex-grow:1;">
+              <input type="text" id="adminTxSearch" placeholder="🔍 Search transaction, user, merchant..." class="form-input" style="max-width:280px; padding:0.5rem 1rem; font-size:0.88rem;">
+              <select id="adminTxCategory" class="form-select" style="max-width:180px; padding:0.5rem 1rem; font-size:0.88rem;">
+                <option value="all">All Categories</option>
+                <option value="Food & Dining">Food &amp; Dining</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Utilities">Utilities &amp; Bills</option>
+                <option value="Entertainment">Entertainment</option>
+              </select>
+              <select id="adminTxStatus" class="form-select" style="max-width:160px; padding:0.5rem 1rem; font-size:0.88rem;">
+                <option value="all">All Audit States</option>
+                <option value="Verified">Verified</option>
+                <option value="Flagged">Flagged</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+            <button onclick="showToast('Global audit report exported to CSV.', 'success')" class="btn btn-outline btn-sm">📥 Export Audit Log</button>
+          </div>
+        </div>
+
+        <!-- Global Transactions Table -->
+        <div class="transactions-card">
+          <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Live Synchronized Global Ledger</h3>
+            <span class="trend-badge trend-positive">● Live Real-Time Feed</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>User ID</th>
+                  <th>Merchant / Entry</th>
+                  <th>Category</th>
+                  <th>Payment Method</th>
+                  <th>Amount</th>
+                  <th>Audit State</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminTxTableBody">
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 14:18</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-8412</code></td>
+                  <td><strong>Amazon Prime Video</strong></td>
+                  <td><span class="category-tag">Entertainment</span></td>
+                  <td>Credit Card</td>
+                  <td class="tabular-nums" style="font-weight:700;">$14.99</td>
+                  <td><span class="trend-badge trend-positive">Verified</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Audit record verified for TX-8412.', 'info')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Inspect</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 13:45</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-1092</code></td>
+                  <td><strong>Whole Foods Market</strong></td>
+                  <td><span class="category-tag">Food &amp; Dining</span></td>
+                  <td>Apple Pay</td>
+                  <td class="tabular-nums" style="font-weight:700;">$124.50</td>
+                  <td><span class="trend-badge trend-positive">Verified</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Audit record verified for TX-1092.', 'info')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Inspect</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 12:02</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-9904</code></td>
+                  <td><strong>Crypto Off-Ramp Wire</strong></td>
+                  <td><span class="category-tag">Transfer</span></td>
+                  <td>Wire Transfer</td>
+                  <td class="tabular-nums" style="font-weight:700; color:var(--rose-600);">$12,500.00</td>
+                  <td><span class="trend-badge trend-negative">Flagged</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Anomalous transfer flagged for audit review.', 'error')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem; color:var(--rose-600); border-color:var(--rose-300);">Review Flag</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 11:20</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-6721</code></td>
+                  <td><strong>Chevron Gas Station</strong></td>
+                  <td><span class="category-tag">Transportation</span></td>
+                  <td>Debit Card</td>
+                  <td class="tabular-nums" style="font-weight:700;">$52.10</td>
+                  <td><span class="trend-badge trend-positive">Verified</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Audit record verified for TX-6721.', 'info')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Inspect</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 10:15</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-4410</code></td>
+                  <td><strong>International Roaming Fee</strong></td>
+                  <td><span class="category-tag">Utilities</span></td>
+                  <td>ACH Direct Debit</td>
+                  <td class="tabular-nums" style="font-weight:700;">$89.00</td>
+                  <td><span class="trend-badge" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a;">Pending</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Batch settlement queue pending.', 'info')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Status</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 09:05</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-3199</code></td>
+                  <td><strong>Apple One Premier</strong></td>
+                  <td><span class="category-tag">Utilities</span></td>
+                  <td>Digital Wallet</td>
+                  <td class="tabular-nums" style="font-weight:700;">$37.95</td>
+                  <td><span class="trend-badge trend-positive">Verified</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Audit record verified for TX-3199.', 'info')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Inspect</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:var(--text-muted); font-size:0.85rem;">2026-09-07 08:30</td>
+                  <td><code style="background:var(--bg-secondary); padding:0.2rem 0.4rem; border-radius:4px;">USR-9021</code></td>
+                  <td><strong>Nordstrom Flagship Store</strong></td>
+                  <td><span class="category-tag">Shopping</span></td>
+                  <td>Credit Card</td>
+                  <td class="tabular-nums" style="font-weight:700;">$340.00</td>
+                  <td><span class="trend-badge trend-positive">Verified</span></td>
+                  <td style="text-align:right;">
+                    <button onclick="showToast('Audit record verified for TX-9021.', 'info')" class="btn btn-outline btn-sm" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Inspect</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const search = document.getElementById('adminTxSearch');
+      const catSelect = document.getElementById('adminTxCategory');
+      const statusSelect = document.getElementById('adminTxStatus');
+
+      function filterTable() {
+        const q = search ? search.value.toLowerCase().trim() : '';
+        const cat = catSelect ? catSelect.value.toLowerCase() : 'all';
+        const st = statusSelect ? statusSelect.value.toLowerCase() : 'all';
+
+        document.querySelectorAll('#adminTxTableBody tr').forEach(row => {
+          const text = row.textContent.toLowerCase();
+          const matchesSearch = !q || text.includes(q);
+          const matchesCat = cat === 'all' || text.includes(cat);
+          const matchesStatus = st === 'all' || text.includes(st);
+
+          row.style.display = (matchesSearch && matchesCat && matchesStatus) ? '' : 'none';
+        });
+      }
+
+      if (search) search.addEventListener('input', filterTable);
+      if (catSelect) catSelect.addEventListener('change', filterTable);
+      if (statusSelect) statusSelect.addEventListener('change', filterTable);
+    });
+  </script>
+</body>
+</html>

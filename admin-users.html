@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Directory & Console — Stackly Admin</title>
+  <meta name="description" content="Manage platform users, inspect registered account status, and control privileges on Stackly.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- MOBILE DRAWER BACKDROP -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Admin Navigation Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="admin-dashboard.html" class="brand-logo" aria-label="Stackly Admin">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Oversight</div>
+        <a href="admin-dashboard.html" class="dash-nav-item">
+          <span>⚡</span> Control Center
+        </a>
+        <a href="admin-users.html" class="dash-nav-item active">
+          <span>👥</span> User Management
+        </a>
+        <a href="admin-categories.html" class="dash-nav-item">
+          <span>🏷️</span> System Categories
+        </a>
+        <a href="admin-transactions.html" class="dash-nav-item">
+          <span>📜</span> Global Ledger
+        </a>
+        <a href="admin-security.html" class="dash-nav-item">
+          <span>🛡️</span> Security & Audit Logs
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--emerald-500); display:grid; place-items:center; font-weight:800; color:#fff;">SU</div>
+          <div>
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff;">Root Admin</div>
+            <div style="font-size:0.75rem; color:var(--emerald-400);">System Operator</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Exit Console
+        </a>
+      </div>
+    </aside>
+
+    <!-- ADMIN MAIN -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Admin Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">User Directory &amp; Console</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Inspect registered account health and manage permissions</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">18,452 Accounts</span>
+        </div>
+      </header>
+
+      <!-- BODY -->
+      <div class="dashboard-body">
+        <!-- User Management Table Card -->
+        <div class="transactions-card" style="margin-bottom:2rem;">
+          <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">All Registered Users</h3>
+              <span style="font-size:0.8rem; color:var(--text-muted);">Active multi-tier account ledger</span>
+            </div>
+            <input type="text" id="adminUserSearch" class="form-input" placeholder="🔍 Search user by name or email..." style="max-width:280px; padding:0.45rem 0.85rem; font-size:0.85rem;">
+          </div>
+
+          <div class="table-responsive">
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>User Profile</th>
+                  <th>Email</th>
+                  <th>Registered</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminUserTbody">
+                <tr>
+                  <td>
+                    <div style="font-weight:700; color:#0f172a;">Alex Vance</div>
+                    <div style="font-size:0.75rem; color:#64748b;">San Francisco, CA</div>
+                  </td>
+                  <td>alex.vance@stackly.com</td>
+                  <td>2026-01-15</td>
+                  <td><span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Premium</span></td>
+                  <td><span class="trend-badge trend-positive">Active</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-outline user-toggle-btn">Suspend</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight:700; color:#0f172a;">Marcus Chen</div>
+                    <div style="font-size:0.75rem; color:#64748b;">Seattle, WA</div>
+                  </td>
+                  <td>marcus.chen@example.com</td>
+                  <td>2026-02-10</td>
+                  <td><span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Standard</span></td>
+                  <td><span class="trend-badge trend-positive">Active</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-outline user-toggle-btn">Suspend</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight:700; color:#0f172a;">Elena Rostova</div>
+                    <div style="font-size:0.75rem; color:#64748b;">Austin, TX</div>
+                  </td>
+                  <td>elena.rostova@example.com</td>
+                  <td>2026-03-04</td>
+                  <td><span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Premium</span></td>
+                  <td><span class="trend-badge trend-positive">Active</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-outline user-toggle-btn">Suspend</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight:700; color:#0f172a;">David Miller</div>
+                    <div style="font-size:0.75rem; color:#64748b;">Denver, CO</div>
+                  </td>
+                  <td>david.miller@example.com</td>
+                  <td>2026-04-18</td>
+                  <td><span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Standard</span></td>
+                  <td><span class="trend-badge trend-positive">Active</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-outline user-toggle-btn">Suspend</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight:700; color:#0f172a;">Sophia Patel</div>
+                    <div style="font-size:0.75rem; color:#64748b;">Chicago, IL</div>
+                  </td>
+                  <td>sophia.patel@example.com</td>
+                  <td>2026-05-22</td>
+                  <td><span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Premium</span></td>
+                  <td><span class="trend-badge trend-positive">Active</span></td>
+                  <td style="text-align:right;">
+                    <button class="btn btn-sm btn-outline user-toggle-btn">Suspend</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.user-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const row = btn.closest('tr');
+          const badge = row.querySelector('.trend-badge');
+          if (badge.textContent === 'Active') {
+            badge.textContent = 'Suspended';
+            badge.className = 'trend-badge trend-negative';
+            btn.textContent = 'Reactivate';
+            showToast('User account suspended.', 'warning');
+          } else {
+            badge.textContent = 'Active';
+            badge.className = 'trend-badge trend-positive';
+            btn.textContent = 'Suspend';
+            showToast('User account reactivated.', 'success');
+          }
+        });
+      });
+
+      const search = document.getElementById('adminUserSearch');
+      if (search) {
+        search.addEventListener('input', () => {
+          const q = search.value.toLowerCase().trim();
+          document.querySelectorAll('#adminUserTbody tr').forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(q) ? '' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Expenses & Outlays — Stackly Dashboard</title>
+  <meta name="description" content="View, search, filter, and audit your expense ledger transactions in Stackly User Dashboard.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item active">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Expenses & Outlays</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Audited transaction history and categorization</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <a href="user-add-expense.html" class="btn btn-primary btn-sm">+ Add New Expense</a>
+          
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <!-- Quick Metrics -->
+        <div class="metrics-grid" style="margin-bottom:2rem;">
+          <div class="metric-card card-expenses">
+            <div class="metric-card-top">
+              <span class="metric-card-label">September Outlays</span>
+              <div class="metric-card-icon">📉</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--amber-600);" id="expensesTotalSpent">$996.09</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-negative">72% Budget</span>
+              <span>of $4,500 monthly limit</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Daily Average Spend</span>
+              <div class="metric-card-icon">📅</div>
+            </div>
+            <div class="metric-card-value tabular-nums">$108.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▼ -$14.00</span>
+              <span>vs previous month</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Peak Category</span>
+              <div class="metric-card-icon">🏷️</div>
+            </div>
+            <div class="metric-card-value" style="font-size:1.5rem;">Food & Dining</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-neutral">28% of total</span>
+              <span>$650 allocation</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Discretionary Buffer</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">$1,260.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">9 Days left</span>
+              <span>$140 / day runway</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.25rem 1.5rem; margin-bottom:1.5rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; flex-grow:1;">
+              <input type="text" id="expenseSearchInput" placeholder="🔍 Search description, merchant..." class="form-input" style="max-width:280px; padding:0.55rem 1rem;">
+              <select id="expenseCategoryFilter" class="form-select" style="max-width:200px; padding:0.55rem 1rem;">
+                <option value="all">All Categories</option>
+                <option value="Food & Dining">Food & Dining</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Education">Education</option>
+                <option value="Travel">Travel</option>
+              </select>
+            </div>
+            <div style="display:flex; gap:0.75rem;">
+              <button id="exportCsvBtn" class="btn btn-outline btn-sm">📥 Export CSV</button>
+              <a href="user-add-expense.html" class="btn btn-primary btn-sm">+ Add Outlay</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transactions Table Card -->
+        <div class="transactions-card">
+          <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Itemized Transactions</h3>
+            <span id="txCountBadge" style="font-size:0.8rem; color:var(--text-muted);">Showing 10 records</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Merchant / Description</th>
+                  <th>Category</th>
+                  <th>Method</th>
+                  <th>Amount</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="userExpensesTableBody">
+                <!-- Dynamically populated from StacklyStore -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tbody = document.getElementById('userExpensesTableBody');
+      const searchInput = document.getElementById('expenseSearchInput');
+      const catFilter = document.getElementById('expenseCategoryFilter');
+      const countBadge = document.getElementById('txCountBadge');
+      const totalSpentEl = document.getElementById('expensesTotalSpent');
+
+      function renderTable() {
+        const txs = StacklyStore.getTransactions().filter(t => t.type === 'expense');
+        const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const cat = catFilter ? catFilter.value : 'all';
+
+        const filtered = txs.filter(t => {
+          const matchQ = !q || t.name.toLowerCase().includes(q) || (t.notes && t.notes.toLowerCase().includes(q));
+          const matchCat = cat === 'all' || t.category === cat;
+          return matchQ && matchCat;
+        });
+
+        if (countBadge) countBadge.textContent = `Showing ${filtered.length} of ${txs.length} expenses`;
+
+        const totalSpent = filtered.reduce((acc, t) => acc + t.amount, 0);
+        if (totalSpentEl) totalSpentEl.textContent = `$${totalSpent.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+
+        if (!tbody) return;
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" style="text-align:center; padding:3rem; color:var(--text-muted);">
+                No matching expenses found. Click <strong>+ Add New Expense</strong> to log one!
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tbody.innerHTML = filtered.map(t => `
+          <tr>
+            <td style="color:var(--text-muted); font-size:0.88rem;">${t.date}</td>
+            <td>
+              <div style="font-weight:700; color:var(--navy-900);">${t.name}</div>
+              ${t.notes ? `<div style="font-size:0.75rem; color:var(--text-muted);">${t.notes}</div>` : ''}
+            </td>
+            <td><span class="category-tag">${t.category}</span></td>
+            <td style="font-size:0.85rem; color:var(--text-muted);">${t.method || 'Credit Card'}</td>
+            <td class="tabular-nums" style="font-weight:700; color:var(--navy-900);">$${t.amount.toFixed(2)}</td>
+            <td style="text-align:right;">
+              <button onclick="deleteExpenseRow('${t.id}')" class="btn btn-outline-rose btn-sm" style="padding:0.25rem 0.6rem; font-size:0.75rem;" title="Remove Expense">🗑️</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      window.deleteExpenseRow = function(id) {
+        if (confirm('Delete this expense transaction from your ledger?')) {
+          StacklyStore.deleteTransaction(id);
+          renderTable();
+          showToast('Expense removed from ledger.', 'info');
+        }
+      };
+
+      if (searchInput) searchInput.addEventListener('input', renderTable);
+      if (catFilter) catFilter.addEventListener('change', renderTable);
+
+      const exportBtn = document.getElementById('exportCsvBtn');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          const txs = StacklyStore.getTransactions().filter(t => t.type === 'expense');
+          const csv = 'Date,Merchant,Category,Method,Amount,Notes\n' + 
+            txs.map(t => `"${t.date}","${t.name}","${t.category}","${t.method || ''}","${t.amount}","${t.notes || ''}"`).join('\n');
+          const blob = new Blob([csv], { type: 'text/csv' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `Stackly_Expenses_${new Date().toISOString().split('T')[0]}.csv`;
+          a.click();
+          showToast('CSV export downloaded successfully!', 'success');
+        });
+      }
+
+      renderTable();
+    });
+  </script>
+</body>
+</html>

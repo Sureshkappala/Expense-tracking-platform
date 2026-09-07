@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Stackly — Our Mission & Financial Awareness Philosophy</title>
+  <meta name="description" content="Learn about Stackly's mission to make personal finance, budgeting, and wealth tracking accessible, transparent, and actionable for everyone.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+
+  <!-- STICKY NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+          <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active">About</a>
+          <a href="features.html" class="nav-link">Features</a>
+          <a href="categories.html" class="nav-link">Expense Categories</a>
+          <a href="budget.html" class="nav-link">Budget</a>
+          <a href="reports.html" class="nav-link">Reports</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Desktop Action Buttons -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+      <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Menu">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+      </a>
+      <button class="mobile-drawer-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link active">About</a>
+      <a href="features.html" class="mobile-nav-link">Features</a>
+      <a href="categories.html" class="mobile-nav-link">Categories</a>
+      <a href="expenses.html" class="mobile-nav-link">Expenses</a>
+      <a href="budget.html" class="mobile-nav-link">Budget</a>
+      <a href="reports.html" class="mobile-nav-link">Reports</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="login.html" class="btn-drawer-login">Login</a>
+      <a href="register.html" class="btn-drawer-signup">Get Started</a>
+    </div>
+    <div class="mobile-drawer-search-wrap">
+      <input type="text" placeholder="Search resources..." class="mobile-drawer-search" aria-label="Search resources">
+    </div>
+    <div class="mobile-drawer-contact-info">
+      <div class="mobile-drawer-contact-title">Contact Info</div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Phone:</strong> <a href="tel:+18005557233">+1 (800) 555-SAFE</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Email:</strong> <a href="mailto:support@stackly.org">support@stackly.org</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Location:</strong> Salem, Tamil Nadu, India
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ABOUT HERO -->
+    <section class="hero-section" style="padding: 4rem 0 3.5rem 0;">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="section-pill">Our Core Philosophy</div>
+            <h1 class="hero-title" style="font-size:2.85rem;">
+              Redefining <span class="highlight-teal">Financial Clarity</span> for the Modern Era.
+            </h1>
+            <p class="hero-description">
+              At Stackly, we believe true financial independence begins with visibility. When you understand where every cent flows, you regain command over your future, eliminate money stress, and unlock purposeful savings.
+            </p>
+            <div class="hero-cta-group">
+              <a href="register.html" class="btn btn-primary">Join 18,000+ Budgeters</a>
+              <a href="contact.html" class="btn btn-outline">Connect With Us</a>
+            </div>
+          </div>
+          <div>
+            <img src="assets/images/about-vision.webp" alt="Stackly Financial Vision and Growth Chart" style="border-radius:var(--radius-xl); box-shadow:var(--shadow-xl);" width="640" height="480">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MISSION & VISION -->
+    <section class="section-spacing" style="background-color: var(--bg-primary); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2.5rem;" class="contact-layout">
+          <!-- Mission -->
+          <div style="background:var(--bg-secondary); padding:2.5rem; border-radius:var(--radius-xl); border:1px solid var(--border-light);" class="fin-card-box">
+            <div style="width:3.25rem; height:3.25rem; border-radius:var(--radius-md); background:var(--emerald-50); color:var(--emerald-600); display:grid; place-items:center; font-size:1.5rem; margin-bottom:1.5rem;">
+              🎯
+            </div>
+            <h3 style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:1rem;">Our Mission</h3>
+            <p style="color:var(--text-secondary); line-height:1.75; font-size:1.02rem;">
+              To empower individuals, freelancers, and families with intuitive, barrier-free tools that make daily expense recording effortless, transparent, and deeply educational. We strive to demystify personal accounting so you make confident decisions with peace of mind.
+            </p>
+          </div>
+
+          <!-- Vision -->
+          <div style="background:var(--bg-secondary); padding:2.5rem; border-radius:var(--radius-xl); border:1px solid var(--border-light);" class="fin-card-box">
+            <div style="width:3.25rem; height:3.25rem; border-radius:var(--radius-md); background:var(--teal-50); color:var(--teal-600); display:grid; place-items:center; font-size:1.5rem; margin-bottom:1.5rem;">
+              🔭
+            </div>
+            <h3 style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:1rem;">Our Vision</h3>
+            <p style="color:var(--text-secondary); line-height:1.75; font-size:1.02rem;">
+              A world where financial literacy is innate and stress-free. We envision Stackly as the global standard for smart personal ledger management—combining thoughtful UX, ethical data stewardship, and real-time behavioral insights without predatory upsells.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2.5: PLATFORM ANALYTICAL ENGINE (IMAGE SHOWCASE) -->
+    <section class="section-spacing" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 3rem; align-items: center;" class="contact-layout">
+          <div>
+            <div class="section-pill" style="margin-bottom: 0.5rem; background: var(--teal-50); color: var(--teal-600);">Analytical Precision</div>
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--navy-900); margin-bottom: 1rem;">Built on Clear, Actionable Financial Metrics</h2>
+            <p style="color: var(--text-secondary); line-height: 1.75; font-size: 1.02rem; margin-bottom: 1.5rem;">
+              Stackly goes beyond simple ledger entries. Our platform architecture gives you real-time visibility into revenue timelines, recurring cost structures, and cashflow margins over configurable cycles.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: var(--navy-900); font-weight: 600; margin-bottom: 2rem;">
+              <div>✓ <strong>Multi-Dimensional Trends:</strong> Track revenue, ROI, and outlay distributions simultaneously.</div>
+              <div>✓ <strong>Cashflow Velocity:</strong> Observe surplus trajectories with high-resolution visual curves.</div>
+              <div>✓ <strong>Zero Data Harvesting:</strong> Enterprise-grade insights with zero tracking or advertisement selling.</div>
+            </div>
+            <a href="reports.html" class="btn btn-primary">Explore Cashflow Reports →</a>
+          </div>
+          <div>
+            <img src="assets/images/about-analytics-dashboard.webp" alt="Stackly Financial Dashboard Analytics and Revenue Over Time" width="1024" height="750" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); width: 100%; height: auto; display: block; border: 1px solid var(--border-light);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHY USE AN EXPENSE TRACKER? -->
+    <section class="section-spacing" style="background-color: var(--bg-primary); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">The Value Proposition</div>
+          <h2 class="section-title">Why Use an Expense Tracker?</h2>
+          <p class="section-subtitle">
+            Most people drastically underestimate their monthly expenditure by 20% to 35%. Systematic tracking bridges the gap between perception and reality.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background:var(--emerald-50); color:var(--emerald-600);">🔍</div>
+            <h3 class="feature-title">Tracking Spending</h3>
+            <p class="feature-text">
+              Uncover small, repetitive micro-purchases—like unattended subscriptions or frequent cafe visits—that quietly drain thousands of dollars annually.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background:var(--teal-50); color:var(--teal-600);">📐</div>
+            <h3 class="feature-title">Active Budgeting</h3>
+            <p class="feature-text">
+              Establish proactive guardrails instead of reacting to credit card statements at month-end. Know your safe daily burn rate in real time.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background:var(--amber-50); color:var(--amber-600);">🧠</div>
+            <h3 class="feature-title">Financial Awareness</h3>
+            <p class="feature-text">
+              Develop genuine mindfulness around your consumer impulses. Emotional awareness helps curb impulse shopping and stabilizes peace of mind.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background:#ede9fe; color:#7c3aed;">🏖️</div>
+            <h3 class="feature-title">Savings Planning</h3>
+            <p class="feature-text">
+              Set aside funds for dream milestones—from emergency cushion vaults to house downpayments—backed by automated progress metrics.
+            </p>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background:#fee2e2; color:#dc2626;">📊</div>
+            <h3 class="feature-title">Expense Analysis</h3>
+            <p class="feature-text">
+              Evaluate multi-month trend charts to optimize utility tariffs, negotiate recurring contracts, and redistribute capital into wealth-generating assets.
+            </p>
+          </div>
+
+          <!-- Pillar 6 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background:#dbeafe; color:#2563eb;">🤝</div>
+            <h3 class="feature-title">Family Coordination</h3>
+            <p class="feature-text">
+              Synchronize household outlays across partners with clear tags, payment mode records, and unified monthly savings goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3.5: MOBILE FREEDOM & DAILY ITEMIZATION (IMAGE SHOWCASE) -->
+    <section class="section-spacing" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" class="contact-layout">
+          <div style="text-align: center;">
+            <img src="assets/images/about-mobile-experience.webp" alt="Stackly Mobile App Experience: Add Expense and Monthly Overview" width="800" height="685" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); width: 100%; max-width: 520px; height: auto; display: inline-block;">
+          </div>
+          <div>
+            <div class="section-pill" style="margin-bottom: 0.5rem; background: var(--emerald-50); color: var(--emerald-600);">Frictionless Daily Use</div>
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--navy-900); margin-bottom: 1rem;">Personal Finance in the Palm of Your Hand</h2>
+            <p style="color: var(--text-secondary); line-height: 1.75; font-size: 1.02rem; margin-bottom: 1.5rem;">
+              We believe the best expense tracker is the one you actually use every day. Stackly’s mobile interface was engineered to eliminate friction—allowing you to log expenses, upload tickets, and review your monthly surplus in seconds.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: var(--navy-900); font-weight: 600; margin-bottom: 2rem;">
+              <div>✓ <strong>One-Tap Category Tagging:</strong> Quickly assign outlays to Rent, Utilities, Food, and Transit.</div>
+              <div>✓ <strong>Live Ticket Uploading:</strong> Keep digital records of physical receipts for audits and tax prep.</div>
+              <div>✓ <strong>Instant Monthly Reconciliation:</strong> Always know your liquid cashflow position before making purchases.</div>
+            </div>
+            <a href="register.html" class="btn btn-emerald">Get Started Free →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: SECURITY & ETHICAL COMMITMENT -->
+    <section class="section-spacing" id="security" style="background-color: var(--bg-primary);">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 100%); color: var(--text-white); border-radius:var(--radius-xl); padding:3.5rem 2.5rem;" class="fin-card-box">
+          <div style="max-width:760px; margin:0 auto; text-align:center;">
+            <div class="section-pill" style="background:rgba(16,185,129,0.15); color:var(--emerald-400); border-color:rgba(16,185,129,0.3);">
+              Privacy First & Uncompromised
+            </div>
+            <h2 style="font-size:2.25rem; font-weight:800; margin-bottom:1.25rem;">Your Financial Data Stays Yours. Period.</h2>
+            <p style="color:var(--text-light); line-height:1.75; font-size:1.05rem; margin-bottom:2rem;">
+              Stackly does not sell your transactional data, bundle your purchase history for third-party advertisers, or promote predatory high-interest loans. All data storage is local-first, encrypted, and completely under your direct control.
+            </p>
+            <div style="display:flex; justify-content:center; gap:1.25rem; flex-wrap:wrap;">
+              <a href="register.html" class="btn btn-emerald btn-lg">Create Your Vault</a>
+              <a href="expenses.html" class="btn btn-outline-white btn-lg">Explore Demo Ledger</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <!-- 4 Columns Main Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p>
+            Mobilizing intelligent financial tracking, automated category allocations, food security envelopes, and personalized wealth planning for modern life.
+          </p>
+                              <div class="footer-social-icons">
+            <a href="404.html" class="footer-social-circle" aria-label="LinkedIn Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.26.05-.53.13-.72a1.37 1.37 0 0 1 1.25-.92c.67 0 1.24.55 1.24 1.33v5.18h2.96z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="X (Twitter) Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="Instagram Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="YouTube Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Stackly</a>
+            <a href="features.html">Platform Features</a>
+            <a href="categories.html">Expense Categories</a>
+            <a href="expenses.html">Expense Management</a>
+            <a href="budget.html">Budget Planner</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <div class="footer-links-list">
+            <a href="contact.html">Contact Coordinates</a>
+            <a href="about.html#terms">Terms & Agreements</a>
+            <a href="about.html#security">Security Audits</a>
+            <a href="reports.html">Cashflow Reports</a>
+            <a href="savings-goals.html">Savings Vaults</a>
+            <a href="user-dashboard.html">User Dashboard</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-newsletter-col">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p>
+            Get quarterly financial updates, smart budgeting alerts, and platform feature reports.
+          </p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to Stackly updates!', 'success'); this.reset();">
+            <input type="email" placeholder="Your Email" class="footer-newsletter-input" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 Stackly. All rights reserved. Designed for financial clarity and wealth tracking.
+        </div>
+        <div class="footer-legal-links">
+          <a href="about.html#security">Privacy Policy</a>
+          <a href="about.html#terms">Terms of Service</a>
+          <a href="about.html#security">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

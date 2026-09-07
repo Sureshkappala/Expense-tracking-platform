@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports & Financial Analytics — Stackly Dashboard</title>
+  <meta name="description" content="Audit historical income vs expense trends, category distributions, and wealth trajectories in Stackly User Dashboard.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item active">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Reports & Analytics</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Macro cashflow comparisons and audited metrics</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button onclick="window.print()" class="btn btn-outline btn-sm">🖨️ Print Report</button>
+          
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <!-- Summary KPI Row -->
+        <div class="metrics-grid" style="margin-bottom:2rem;">
+          <div class="metric-card card-income">
+            <div class="metric-card-top">
+              <span class="metric-card-label">YTD Total Inflow</span>
+              <div class="metric-card-icon">📈</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">$59,850.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ +14.8%</span>
+              <span>annualized pace</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-expenses">
+            <div class="metric-card-top">
+              <span class="metric-card-label">YTD Total Outflow</span>
+              <div class="metric-card-icon">📉</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--amber-600);">$29,160.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-neutral">48.7% Ratio</span>
+              <span>of total earnings</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Net Accumulated Surplus</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--teal-600);">$30,690.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ $3,410 / mo</span>
+              <span>average savings</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Savings Efficiency</span>
+              <div class="metric-card-icon">⚡</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">51.3%</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">Grade A+</span>
+              <span>top 5% tier</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div style="display:grid; grid-template-columns: 1.35fr 1fr; gap:2rem; margin-bottom:2rem; align-items:start;" class="contact-layout">
+          <!-- Monthly Trajectory Chart -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+              <div>
+                <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Monthly Trajectory Audit</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Inflow vs Outlays by Month</span>
+              </div>
+            </div>
+            <div style="width:100%; height:260px; position:relative;">
+              <canvas id="incomeExpenseChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Category Donut Chart -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+              <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Category Distribution</h3>
+              <span style="font-size:0.8rem; color:var(--text-muted);">September 2026</span>
+            </div>
+            <div style="width:100%; height:200px; position:relative; margin-bottom:1rem;">
+              <canvas id="categoryDonutChart"></canvas>
+            </div>
+            <div style="padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.85rem; display:flex; justify-content:space-between;">
+              <span>Largest Expenditure:</span>
+              <strong style="color:var(--navy-900);">Food & Dining (28%)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Historical Table -->
+        <div class="transactions-card">
+          <div style="padding:1.25rem 1.5rem; background:var(--bg-primary); border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy-900);">Historical Cashflow Ledgers</h3>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Past 6 Months</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Total Inflow</th>
+                  <th>Total Outlay</th>
+                  <th>Net Savings</th>
+                  <th>Savings Rate</th>
+                  <th>Target Met</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>September 2026 (Active)</strong></td>
+                  <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">$6,650.00</td>
+                  <td class="tabular-nums" style="color:var(--amber-600); font-weight:700;">$3,240.00</td>
+                  <td class="tabular-nums" style="color:var(--teal-600); font-weight:700;">+$3,410.00</td>
+                  <td><span class="trend-badge trend-positive">51.2%</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:700;">✓ On Track</span></td>
+                </tr>
+                <tr>
+                  <td>August 2026</td>
+                  <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">$6,800.00</td>
+                  <td class="tabular-nums" style="color:var(--amber-600); font-weight:700;">$3,450.00</td>
+                  <td class="tabular-nums" style="color:var(--teal-600); font-weight:700;">+$3,350.00</td>
+                  <td><span class="trend-badge trend-positive">49.2%</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:700;">✓ Target Met</span></td>
+                </tr>
+                <tr>
+                  <td>July 2026</td>
+                  <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">$6,650.00</td>
+                  <td class="tabular-nums" style="color:var(--amber-600); font-weight:700;">$3,180.00</td>
+                  <td class="tabular-nums" style="color:var(--teal-600); font-weight:700;">+$3,470.00</td>
+                  <td><span class="trend-badge trend-positive">52.1%</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:700;">✓ Target Met</span></td>
+                </tr>
+                <tr>
+                  <td>June 2026</td>
+                  <td class="tabular-nums" style="color:var(--emerald-600); font-weight:700;">$6,500.00</td>
+                  <td class="tabular-nums" style="color:var(--amber-600); font-weight:700;">$3,290.00</td>
+                  <td class="tabular-nums" style="color:var(--teal-600); font-weight:700;">+$3,210.00</td>
+                  <td><span class="trend-badge trend-positive">49.3%</span></td>
+                  <td><span style="color:var(--emerald-600); font-weight:700;">✓ Target Met</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

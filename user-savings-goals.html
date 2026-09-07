@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savings Goals & Vaults — Stackly Dashboard</title>
+  <meta name="description" content="Set target milestones, track dedicated envelopes, and automate reserve funding in Stackly User Dashboard.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item active">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Savings Goals & Vaults</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Dedicated financial envelopes and milestone trackers</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="openNewGoalModalBtn" class="btn btn-primary btn-sm">+ New Goal Vault</button>
+          
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <!-- Milestone Summary Bar -->
+        <div class="metrics-grid" style="margin-bottom:2rem;">
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Vaults Target</span>
+              <div class="metric-card-icon">🎯</div>
+            </div>
+            <div class="metric-card-value tabular-nums">$35,000.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-neutral">4 Active Vaults</span>
+              <span>across all targets</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-income">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Accumulated Stash</span>
+              <div class="metric-card-icon">💰</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">$18,850.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">53.8% Complete</span>
+              <span>+$850 added this month</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Monthly Savings Pace</span>
+              <div class="metric-card-icon">📈</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--teal-600);">$1,450.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">Ahead of Schedule</span>
+              <span>estimated ~11 mos</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Top Funded Vault</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value" style="font-size:1.45rem;">Emergency Fund</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">75% Funded</span>
+              <span>$7,500 / $10,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goal Cards Grid -->
+        <div class="goals-grid" id="goalsCardsGrid">
+          <!-- Card 1 -->
+          <div class="goal-card fin-card-box">
+            <div class="goal-card-header">
+              <div class="goal-icon-wrap" style="background:rgba(16, 185, 129, 0.12); color:var(--emerald-600);">🛡️</div>
+              <div>
+                <h4 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin:0;">Emergency Reserve Vault</h4>
+                <span style="font-size:0.75rem; color:var(--text-muted);">6-Month Essential Runway</span>
+              </div>
+            </div>
+            <div style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:0.25rem;">$7,500.00</div>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">of $10,000.00 target</div>
+            <div class="goal-progress-bar-wrap" style="height:10px; margin-bottom:0.5rem;">
+              <div class="goal-progress-fill" style="width:75%; background:var(--emerald-500);"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:1.25rem;">
+              <span style="color:var(--emerald-600); font-weight:700;">75% Funded</span>
+              <span style="color:var(--text-muted);">$2,500 remaining</span>
+            </div>
+            <button onclick="quickDepositPrompt('Emergency Reserve Vault')" class="btn btn-outline-emerald btn-sm" style="width:100%;">+ Deposit Funds</button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="goal-card fin-card-box">
+            <div class="goal-card-header">
+              <div class="goal-icon-wrap" style="background:rgba(2, 132, 199, 0.12); color:var(--teal-600);">✈️</div>
+              <div>
+                <h4 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin:0;">Japan Summer Trip</h4>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Target: July 2027</span>
+              </div>
+            </div>
+            <div style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:0.25rem;">$3,200.00</div>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">of $5,000.00 target</div>
+            <div class="goal-progress-bar-wrap" style="height:10px; margin-bottom:0.5rem;">
+              <div class="goal-progress-fill" style="width:64%; background:var(--teal-500);"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:1.25rem;">
+              <span style="color:var(--teal-600); font-weight:700;">64% Funded</span>
+              <span style="color:var(--text-muted);">$1,800 remaining</span>
+            </div>
+            <button onclick="quickDepositPrompt('Japan Summer Trip')" class="btn btn-outline btn-sm" style="width:100%;">+ Deposit Funds</button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="goal-card fin-card-box">
+            <div class="goal-card-header">
+              <div class="goal-icon-wrap" style="background:rgba(245, 158, 11, 0.12); color:var(--amber-600);">💻</div>
+              <div>
+                <h4 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin:0;">Tech Hardware Upgrade</h4>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Workstation & Monitors</span>
+              </div>
+            </div>
+            <div style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:0.25rem;">$1,650.00</div>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">of $2,500.00 target</div>
+            <div class="goal-progress-bar-wrap" style="height:10px; margin-bottom:0.5rem;">
+              <div class="goal-progress-fill" style="width:66%; background:var(--amber-500);"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:1.25rem;">
+              <span style="color:var(--amber-600); font-weight:700;">66% Funded</span>
+              <span style="color:var(--text-muted);">$850 remaining</span>
+            </div>
+            <button onclick="quickDepositPrompt('Tech Hardware Upgrade')" class="btn btn-outline btn-sm" style="width:100%;">+ Deposit Funds</button>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="goal-card fin-card-box">
+            <div class="goal-card-header">
+              <div class="goal-icon-wrap" style="background:rgba(124, 58, 237, 0.12); color:#7c3aed;">🏡</div>
+              <div>
+                <h4 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin:0;">Down Payment Deposit</h4>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Long-Term Property Asset</span>
+              </div>
+            </div>
+            <div style="font-size:1.6rem; font-weight:800; color:var(--navy-900); margin-bottom:0.25rem;">$6,500.00</div>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">of $17,500.00 target</div>
+            <div class="goal-progress-bar-wrap" style="height:10px; margin-bottom:0.5rem;">
+              <div class="goal-progress-fill" style="width:37%; background:#7c3aed;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:1.25rem;">
+              <span style="color:#7c3aed; font-weight:700;">37% Funded</span>
+              <span style="color:var(--text-muted);">$11,000 remaining</span>
+            </div>
+            <button onclick="quickDepositPrompt('Down Payment Deposit')" class="btn btn-outline btn-sm" style="width:100%;">+ Deposit Funds</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    window.quickDepositPrompt = function(goalName) {
+      const amt = prompt(`Deposit funds into "${goalName}" ($ USD):`, '250.00');
+      if (amt && !isNaN(parseFloat(amt)) && parseFloat(amt) > 0) {
+        showToast(`Successfully stashed +$${parseFloat(amt).toFixed(2)} into ${goalName}!`, 'success');
+      }
+    };
+  </script>
+</body>
+</html>

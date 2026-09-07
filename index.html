@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly — Modern Expense Tracking & Personal Finance Platform</title>
+  <meta name="description" content="Take control of daily expenses, manage monthly budgets, analyze financial habits, and achieve savings goals with Stackly's smart personal finance platform.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+
+  <!-- STICKY NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+          <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="features.html" class="nav-link">Features</a>
+          <a href="categories.html" class="nav-link">Expense Categories</a>
+          <a href="budget.html" class="nav-link">Budget</a>
+          <a href="reports.html" class="nav-link">Reports</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Desktop Action Buttons -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Menu">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+      </a>
+      <button class="mobile-drawer-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="features.html" class="mobile-nav-link">Features</a>
+      <a href="categories.html" class="mobile-nav-link">Categories</a>
+      <a href="expenses.html" class="mobile-nav-link">Expenses</a>
+      <a href="budget.html" class="mobile-nav-link">Budget</a>
+      <a href="reports.html" class="mobile-nav-link">Reports</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="login.html" class="btn-drawer-login">Login</a>
+      <a href="register.html" class="btn-drawer-signup">Get Started</a>
+    </div>
+    <div class="mobile-drawer-search-wrap">
+      <input type="text" placeholder="Search resources..." class="mobile-drawer-search" aria-label="Search resources">
+    </div>
+    <div class="mobile-drawer-contact-info">
+      <div class="mobile-drawer-contact-title">Contact Info</div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Phone:</strong> <a href="tel:+18005557233">+1 (800) 555-SAFE</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Email:</strong> <a href="mailto:support@stackly.org">support@stackly.org</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Location:</strong> Salem, Tamil Nadu, India
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="section-pill">
+              <span>✦</span> Smart Personal Finance Platform
+            </div>
+            <h1 class="hero-title">
+              Take Control of <span class="highlight-teal">Every Expense</span> with Precision.
+            </h1>
+            <p class="hero-description">
+              Stop guessing where your money goes. Stackly gives you automated expense tracking, proactive category budgets, real-time income analytics, and clear milestones toward your long-term savings goals.
+            </p>
+            <div class="hero-cta-group">
+              <a href="register.html" class="btn btn-emerald btn-lg">Start Tracking Free</a>
+              <a href="user-dashboard.html" class="btn btn-outline btn-lg">View Live Dashboard</a>
+            </div>
+            <div class="hero-badges-row">
+              <div class="hero-badge-item">
+                <div class="badge-icon-check">✓</div>
+                <span>Bank-Grade Privacy</span>
+              </div>
+              <div class="hero-badge-item">
+                <div class="badge-icon-check">✓</div>
+                <span>Zero Subscription Fees</span>
+              </div>
+              <div class="hero-badge-item">
+                <div class="badge-icon-check">✓</div>
+                <span>Real-Time Sync</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Component with High-Impact Platform Mockup Image -->
+          <div class="hero-visual">
+            <div class="hero-mockup-wrapper">
+              <!-- Floating Badge 1 (Top-Left) -->
+              <div class="hero-floating-badge-1">
+                <span>💰 Total Balance</span>
+                <strong style="color:var(--emerald-400); font-weight:800;">$14,250.00</strong>
+                <span style="font-size:0.75rem; color:#14b8a6;">▲ +14.2%</span>
+              </div>
+
+              <!-- Floating Badge 2 (Bottom-Right) -->
+              <div class="hero-floating-badge-2">
+                <span class="pulse-dot"></span>
+                <span>Active Sync</span>
+                <strong style="color:var(--teal-400); font-weight:700;">Live Ledger</strong>
+              </div>
+
+              <div class="hero-mockup-inner">
+                <div class="hero-mockup-bar">
+                  <div style="display: flex; gap: 7px;">
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                  </div>
+                  <span style="font-size: 0.78rem; color: #14b8a6; font-family: monospace; letter-spacing: 0.05em;">app.stackly.platform/cockpit</span>
+                  <span style="font-size: 0.75rem; color: var(--emerald-400); font-weight: 700; display: flex; align-items: center; gap: 5px;">
+                    <span class="pulse-dot"></span> Live
+                  </span>
+                </div>
+                <img src="assets/images/platform-mockup.webp" alt="Stackly Financial Platform Cockpit on Laptop and Smartphone" width="1024" height="576" class="hero-mockup-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FINANCIAL METRICS OVERVIEW -->
+    <section class="overview-metrics-section">
+      <div class="container">
+        <div class="metrics-grid">
+          <!-- Total Balance -->
+          <div class="metric-card card-balance">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Balance</span>
+              <div class="metric-card-icon">💳</div>
+            </div>
+            <div class="metric-card-value tabular-nums">$14,250.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ +8.4%</span>
+              <span>from all connected accounts</span>
+            </div>
+          </div>
+
+          <!-- Total Income -->
+          <div class="metric-card card-income">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Income</span>
+              <div class="metric-card-icon">📈</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">$6,650.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">▲ +$1,450</span>
+              <span>salary + freelancing</span>
+            </div>
+          </div>
+
+          <!-- Total Expenses -->
+          <div class="metric-card card-expenses">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Expenses</span>
+              <div class="metric-card-icon">📉</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--amber-600);">$3,240.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-negative">▼ −$310</span>
+              <span>below 30-day average</span>
+            </div>
+          </div>
+
+          <!-- Net Savings -->
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Net Savings</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--teal-600);">$3,410.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">51.2%</span>
+              <span>monthly savings rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: EXPENSE OVERVIEW & CATEGORIES -->
+    <section class="section-spacing expense-overview-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Categorized Intelligence</div>
+          <h2 class="section-title">Expense Breakdown by Category</h2>
+          <p class="section-subtitle">
+            Every transaction is organized with surgical clarity. Explore your top spending categories, identify leaking funds, and maintain balanced allocations.
+          </p>
+        </div>
+
+        <div class="categories-grid">
+          <!-- Food & Dining -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-food">🍽️</div>
+                <span class="category-pct-badge">28% Total</span>
+              </div>
+              <h3 class="category-name">Food & Dining</h3>
+              <div class="category-amount tabular-nums">$890.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 78%; background-color: #f97316;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Transportation -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-transport">🚗</div>
+                <span class="category-pct-badge">14% Total</span>
+              </div>
+              <h3 class="category-name">Transportation</h3>
+              <div class="category-amount tabular-nums">$460.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 58%; background-color: #0284c7;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Shopping -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-shopping">🛍️</div>
+                <span class="category-pct-badge">12% Total</span>
+              </div>
+              <h3 class="category-name">Shopping</h3>
+              <div class="category-amount tabular-nums">$380.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 64%; background-color: #8b5cf6;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Utilities & Bills -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-bills">⚡</div>
+                <span class="category-pct-badge">18% Total</span>
+              </div>
+              <h3 class="category-name">Bills & Utilities</h3>
+              <div class="category-amount tabular-nums">$580.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 82%; background-color: #ef4444;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Entertainment -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-entertainment">🎬</div>
+                <span class="category-pct-badge">9% Total</span>
+              </div>
+              <h3 class="category-name">Entertainment</h3>
+              <div class="category-amount tabular-nums">$290.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 72%; background-color: #ec4899;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Healthcare -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-healthcare">💊</div>
+                <span class="category-pct-badge">7% Total</span>
+              </div>
+              <h3 class="category-name">Healthcare</h3>
+              <div class="category-amount tabular-nums">$220.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 44%; background-color: #10b981;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Education -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-education">🎓</div>
+                <span class="category-pct-badge">6% Total</span>
+              </div>
+              <h3 class="category-name">Education</h3>
+              <div class="category-amount tabular-nums">$190.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 38%; background-color: #6366f1;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+
+          <!-- Travel -->
+          <div class="category-card">
+            <div>
+              <div class="category-card-head">
+                <div class="category-icon-wrap category-icon-travel">✈️</div>
+                <span class="category-pct-badge">6% Total</span>
+              </div>
+              <h3 class="category-name">Travel & Trips</h3>
+              <div class="category-amount tabular-nums">$230.00</div>
+              <div class="category-progress-track">
+                <div class="category-progress-fill" style="width: 46%; background-color: #14b8a6;"></div>
+              </div>
+            </div>
+            <a href="expenses.html" class="category-footer-link">View Details →</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="expenses.html" class="btn btn-navy">View All Categories & Logs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: BUDGET MANAGEMENT -->
+    <section class="section-spacing budget-section">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: stretch;" class="contact-layout">
+          <div class="budget-box-container" style="margin-bottom: 0; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="budget-overview-header">
+                <div class="budget-headline">
+                  <div class="section-pill">Budget Discipline</div>
+                  <h3>Monthly Budget Allocation</h3>
+                  <p>Dynamic monitoring keeps you ahead of unexpected spikes before month-end.</p>
+                </div>
+                <div class="budget-alert-pill">
+                  <span>⚠️</span> Monthly Budget — 72% Used
+                </div>
+              </div>
+
+              <!-- Big Progress Gauge -->
+              <div class="budget-gauge-wrap">
+                <div class="budget-gauge-labels">
+                  <span style="color:var(--text-secondary); font-weight:700;">Spent: $3,240.00</span>
+                  <span style="color:var(--teal-600); font-weight:700;">Cap: $4,500.00</span>
+                </div>
+                <div class="budget-gauge-track">
+                  <div class="budget-gauge-bar" style="width: 72%;"></div>
+                </div>
+              </div>
+
+              <!-- Budget Key Stats -->
+              <div class="budget-stats-grid">
+                <div class="budget-stat-item">
+                  <span class="label">Total Monthly Budget</span>
+                  <span class="value tabular-nums">$4,500.00</span>
+                </div>
+                <div class="budget-stat-item">
+                  <span class="label">Total Spent So Far</span>
+                  <span class="value tabular-nums" style="color:var(--amber-600);">$3,240.00</span>
+                </div>
+                <div class="budget-stat-item">
+                  <span class="label">Remaining Spending Buffer</span>
+                  <span class="value tabular-nums" style="color:var(--emerald-600);">$1,260.00</span>
+                </div>
+                <div class="budget-stat-item">
+                  <span class="label">Daily Safe Spend Limit</span>
+                  <span class="value tabular-nums" style="color:var(--teal-600);">$42.00 / day</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; margin-top: 1.75rem; gap:1rem; flex-wrap:wrap;">
+              <a href="budget.html" class="btn btn-outline">Review Category Budgets</a>
+              <a href="budget.html#setBudget" class="btn btn-primary">Set / Adjust Budget</a>
+            </div>
+          </div>
+
+          <!-- Handheld Category Donut Image Card -->
+          <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border-light); background: var(--bg-primary); height: 100%; display: flex; flex-direction: column; justify-content: space-between;" class="fin-card-box">
+            <div style="width: 100%; height: 380px; overflow: hidden; flex-shrink: 0; background: #000;">
+              <img src="assets/images/handheld-expense-donut.webp" alt="Real-time Mobile Expense Tracking and Category Breakdown" width="1024" height="853" style="width:100%; height:100%; display:block; object-fit:cover; object-position: center 25%; border-radius: 0 !important;">
+            </div>
+            <div style="padding: 1.5rem 1.75rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; background: var(--bg-primary);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Instant Mobile Sync</span>
+                <span style="font-size:0.8rem; color:var(--emerald-600); font-weight:700;">Live Feed</span>
+              </div>
+              <h4 style="font-size:1.15rem; font-weight:800; color:var(--navy-900); margin-bottom: 0.35rem;">Frictionless Daily Tracking</h4>
+              <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin:0;">
+                Log morning coffees and grocery purchases with one tap while category donut rings update in real time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INCOME VS EXPENSES COMPARISON -->
+    <section class="section-spacing income-expense-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Financial Cashflow</div>
+          <h2 class="section-title">Income vs Expenses Analysis</h2>
+          <p class="section-subtitle">
+            Observe the spread between what you earn and what leaves your wallet over configurable cycles.
+          </p>
+        </div>
+
+        <div class="comparison-card">
+          <div class="comparison-controls">
+            <div>
+              <h3 style="font-size:1.25rem; font-weight:700; color:var(--navy-900);">Net Cashflow Trajectory</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Comparing earned capital against total disbursements</p>
+            </div>
+            <!-- Period Switches -->
+            <div class="period-switch">
+              <button class="period-btn" data-period="weekly">Weekly</button>
+              <button class="period-btn active" data-period="monthly">Monthly</button>
+              <button class="period-btn" data-period="yearly">Yearly</button>
+            </div>
+          </div>
+
+          <!-- Canvas Chart -->
+          <div class="chart-canvas-container">
+            <canvas id="incomeExpenseChart"></canvas>
+          </div>
+
+          <!-- Summary values beneath chart -->
+          <div class="comparison-metrics-summary">
+            <div class="comp-summary-box">
+              <span class="title">Total Income</span>
+              <span class="val val-income tabular-nums" id="compAvgIncome">$6,200</span>
+            </div>
+            <div class="comp-summary-box">
+              <span class="title">Total Expenses</span>
+              <span class="val val-expense tabular-nums" id="compAvgExpense">$3,240</span>
+            </div>
+            <div class="comp-summary-box">
+              <span class="title">Net Surplus</span>
+              <span class="val val-remaining tabular-nums" id="compAvgRemaining">$2,960</span>
+            </div>
+            <div class="comp-summary-box">
+              <span class="title">Savings Efficiency</span>
+              <span class="val val-savings-rate tabular-nums" id="compSavingsRate">47.7%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: HOW IT WORKS (CONNECTED TIMELINE FLOW) -->
+    <section class="section-spacing how-it-works-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Seamless 4-Step Process</div>
+          <h2 class="section-title">How Stackly Elevates Your Wealth</h2>
+          <p class="section-subtitle">
+            Transform chaotic receipts into actionable financial intelligence through our streamlined ritual.
+          </p>
+        </div>
+
+        <div class="timeline-flow-container">
+          <!-- Step 1 -->
+          <div class="timeline-step-card">
+            <div class="step-badge">01</div>
+            <h3 class="step-title">Add Income</h3>
+            <p class="step-desc">
+              Log primary salaries, freelance retainers, dividends, or rental revenue with exact dates and payment channels.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step-card step-card-2">
+            <div class="step-badge">02</div>
+            <h3 class="step-title">Add Expenses</h3>
+            <p class="step-desc">
+              Record daily outlays instantly on desktop or mobile with clean payment tags and receipt annotations.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step-card step-card-3">
+            <div class="step-badge">03</div>
+            <h3 class="step-title">Categorize</h3>
+            <p class="step-desc">
+              Distribute outlays into intelligent buckets like Food, Transit, and Utilities to see immediate allocation health.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step-card step-card-4">
+            <div class="step-badge">04</div>
+            <h3 class="step-title">Analyze & Grow</h3>
+            <p class="step-desc">
+              Review monthly trends, optimize leaky categories, fund savings vaults, and build bulletproof financial confidence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Workflow Visual -->
+        <div style="margin-top: 3.5rem; text-align: center;">
+          <div style="max-width: 820px; margin: 0 auto; background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); padding: 2rem 1.5rem 1.5rem 1.5rem;" class="fin-card-box">
+            <div style="margin-bottom: 1.25rem;">
+              <span class="section-pill" style="margin-bottom:0.4rem; font-size:0.75rem;">Interactive In-App Flow</span>
+              <h4 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Instant Expense Ingestion & Real-Time Monthly Reconciliation</h4>
+            </div>
+            <img src="assets/images/mobile-add-expense-flow.webp" alt="Fast Expense Entry and Monthly Overview Workflow" width="1024" height="916" style="width: 100%; max-width: 620px; height: auto; border-radius: var(--radius-lg); margin: 0 auto; display: block;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CORE EXPENSE TRACKING FEATURES -->
+    <section class="section-spacing features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Robust Capabilities</div>
+          <h2 class="section-title">Complete Toolset for Modern Finance</h2>
+          <p class="section-subtitle">
+            Engineered to handle your entire personal balance sheet without confusing banking jargon.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">📊</div>
+            <h3 class="feature-title">Expense Tracking</h3>
+            <p class="feature-text">Log purchases in seconds with exact amounts, tags, merchant notes, and payment methods.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🎯</div>
+            <h3 class="feature-title">Budget Management</h3>
+            <p class="feature-text">Define custom thresholds per category with proactive alerts before exceeding planned limits.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🏷️</div>
+            <h3 class="feature-title">Category Management</h3>
+            <p class="feature-text">Tailor custom tags and categories matching your unique lifestyle and family spending habits.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">💰</div>
+            <h3 class="feature-title">Income Tracking</h3>
+            <p class="feature-text">Maintain clear records of recurring salaries, consulting fees, and passive investment returns.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">📈</div>
+            <h3 class="feature-title">Financial Reports</h3>
+            <p class="feature-text">Generate interactive visual cashflow statements and category breakdowns for any date range.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">💡</div>
+            <h3 class="feature-title">Spending Insights</h3>
+            <p class="feature-text">Identify highest spend days, creeping subscription costs, and opportunities for instant savings.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🏆</div>
+            <h3 class="feature-title">Savings Goals</h3>
+            <p class="feature-text">Set target dates for milestone purchases, emergency cushions, or dream family vacations.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">📜</div>
+            <h3 class="feature-title">Transaction History</h3>
+            <p class="feature-text">Filter, sort, and search your entire ledger by date, payment mode, or keyword effortlessly.</p>
+          </div>
+        </div>
+
+        <!-- Mobile Application Suite Showcase Banner -->
+        <div style="margin-top: 3.5rem; background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 3rem; box-shadow: var(--shadow-md);" class="fin-card-box">
+          <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 3rem; align-items: center;" class="contact-layout">
+            <div>
+              <div class="section-pill" style="margin-bottom: 0.5rem; background: var(--teal-50); color: var(--teal-600);">Mobile First Experience</div>
+              <h3 style="font-size: 1.85rem; font-weight: 800; color: var(--navy-900); margin-bottom: 1rem;">Seamless Budgeting Right From Your Pocket</h3>
+              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1rem; margin-bottom: 1.5rem;">
+                Every ledger calculation, category threshold, and expense addition happens seamlessly across both desktop and mobile. Inspect your monthly envelope, review interactive category donuts, and record payments on the go.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.92rem; color: var(--navy-900); font-weight: 600; margin-bottom: 2rem;">
+                <div>✓ <strong>Pocket Dashboard:</strong> Monitor remaining monthly budget with real-time percentages.</div>
+                <div>✓ <strong>Interactive Donuts:</strong> Breakdown spending into Groceries, Utilities, and Shopping.</div>
+                <div>✓ <strong>One-Tap Entry:</strong> Fast itemized logs with merchant tags and instant sync.</div>
+              </div>
+              <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <a href="register.html" class="btn btn-emerald">Get Started Free</a>
+                <a href="features.html" class="btn btn-outline">Explore All Features →</a>
+              </div>
+            </div>
+            <div style="text-align: center;">
+              <img src="assets/images/mobile-suite-mockup.webp" alt="Stackly Mobile App Suite: Dashboard, Expense Donut, and Add Expense Form" width="1024" height="768" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: SAVINGS GOALS -->
+    <section class="section-spacing savings-goals-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Milestone Vaults</div>
+          <h2 class="section-title">Active Savings Targets</h2>
+          <p class="section-subtitle">
+            Gamify your financial discipline by allocating surplus revenue into dedicated savings funds.
+          </p>
+        </div>
+
+        <div class="goals-grid">
+          <!-- Emergency Fund -->
+          <div class="goal-card">
+            <div>
+              <div class="goal-card-head">
+                <span class="goal-badge">High Priority</span>
+                <span style="font-size:0.8rem; color:#64748b;">Target: Dec 2026</span>
+              </div>
+              <h3 class="goal-name">Emergency Safety Fund</h3>
+              <div class="goal-amounts">
+                <span class="goal-saved tabular-nums">$12,000</span>
+                <span class="goal-target tabular-nums">of $15,000 target</span>
+              </div>
+              <div class="goal-progress-bar-wrap">
+                <div class="goal-progress-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="goal-footer-info">
+              <span>Remaining: <strong>$3,000</strong></span>
+              <span style="color:var(--emerald-600); font-weight:700;">80% Funded</span>
+            </div>
+          </div>
+
+          <!-- Vacation -->
+          <div class="goal-card">
+            <div>
+              <div class="goal-card-head">
+                <span class="goal-badge">Leisure</span>
+                <span style="font-size:0.8rem; color:#64748b;">Target: Nov 2026</span>
+              </div>
+              <h3 class="goal-name">Alpine Ski Vacation</h3>
+              <div class="goal-amounts">
+                <span class="goal-saved tabular-nums">$3,200</span>
+                <span class="goal-target tabular-nums">of $4,000 target</span>
+              </div>
+              <div class="goal-progress-bar-wrap">
+                <div class="goal-progress-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="goal-footer-info">
+              <span>Remaining: <strong>$800</strong></span>
+              <span style="color:var(--emerald-600); font-weight:700;">80% Funded</span>
+            </div>
+          </div>
+
+          <!-- New Laptop -->
+          <div class="goal-card">
+            <div>
+              <div class="goal-card-head">
+                <span class="goal-badge">Tech Gear</span>
+                <span style="font-size:0.8rem; color:#64748b;">Target: Oct 2026</span>
+              </div>
+              <h3 class="goal-name">New M-Series Laptop</h3>
+              <div class="goal-amounts">
+                <span class="goal-saved tabular-nums">$2,100</span>
+                <span class="goal-target tabular-nums">of $2,500 target</span>
+              </div>
+              <div class="goal-progress-bar-wrap">
+                <div class="goal-progress-fill" style="width: 84%;"></div>
+              </div>
+            </div>
+            <div class="goal-footer-info">
+              <span>Remaining: <strong>$400</strong></span>
+              <span style="color:var(--emerald-600); font-weight:700;">84% Funded</span>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="goal-card">
+            <div>
+              <div class="goal-card-head">
+                <span class="goal-badge">Upskilling</span>
+                <span style="font-size:0.8rem; color:#64748b;">Target: Mar 2027</span>
+              </div>
+              <h3 class="goal-name">Executive Master Program</h3>
+              <div class="goal-amounts">
+                <span class="goal-saved tabular-nums">$4,600</span>
+                <span class="goal-target tabular-nums">of $8,000 target</span>
+              </div>
+              <div class="goal-progress-bar-wrap">
+                <div class="goal-progress-fill" style="width: 57.5%;"></div>
+              </div>
+            </div>
+            <div class="goal-footer-info">
+              <span>Remaining: <strong>$3,400</strong></span>
+              <span style="color:var(--emerald-600); font-weight:700;">58% Funded</span>
+            </div>
+          </div>
+
+          <!-- Home Renovation -->
+          <div class="goal-card">
+            <div>
+              <div class="goal-card-head">
+                <span class="goal-badge">Property</span>
+                <span style="font-size:0.8rem; color:#64748b;">Target: Jun 2027</span>
+              </div>
+              <h3 class="goal-name">Home Renovation Reserve</h3>
+              <div class="goal-amounts">
+                <span class="goal-saved tabular-nums">$14,200</span>
+                <span class="goal-target tabular-nums">of $20,000 target</span>
+              </div>
+              <div class="goal-progress-bar-wrap">
+                <div class="goal-progress-fill" style="width: 71%;"></div>
+              </div>
+            </div>
+            <div class="goal-footer-info">
+              <span>Remaining: <strong>$5,800</strong></span>
+              <span style="color:var(--emerald-600); font-weight:700;">71% Funded</span>
+            </div>
+          </div>
+
+          <!-- Electric Vehicle -->
+          <div class="goal-card">
+            <div>
+              <div class="goal-card-head">
+                <span class="goal-badge">Vehicle</span>
+                <span style="font-size:0.8rem; color:#64748b;">Target: Jan 2027</span>
+              </div>
+              <h3 class="goal-name">EV Downpayment</h3>
+              <div class="goal-amounts">
+                <span class="goal-saved tabular-nums">$6,500</span>
+                <span class="goal-target tabular-nums">of $10,000 target</span>
+              </div>
+              <div class="goal-progress-bar-wrap">
+                <div class="goal-progress-fill" style="width: 65%;"></div>
+              </div>
+            </div>
+            <div class="goal-footer-info">
+              <span>Remaining: <strong>$3,500</strong></span>
+              <span style="color:var(--emerald-600); font-weight:700;">65% Funded</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="savings-goals.html" class="btn btn-emerald">Manage & Deposit to Goals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: FINANCIAL INSIGHTS -->
+    <section class="section-spacing insights-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Smart Observations</div>
+          <h2 class="section-title">Automated Financial Insights</h2>
+          <p class="section-subtitle">
+            Stackly synthesizes your ledger data to point out notable spending patterns and smart savings opportunities.
+          </p>
+        </div>
+
+        <div class="insights-grid">
+          <div class="insight-card">
+            <div class="insight-icon">🍽️</div>
+            <div class="insight-content">
+              <h4>Highest Spending Category</h4>
+              <p>Food & Dining represents <strong>28% ($890.00)</strong> of your total outlays this month. Meal prepping twice a week could yield an estimated $180 monthly buffer.</p>
+              <span class="insight-metric-pill">Category Watch</span>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">📉</div>
+            <div class="insight-content">
+              <h4>Spending Velocity Deceleration</h4>
+              <p>Your week-over-week spending pace slowed down by <strong>14.6%</strong> after implementing category limits in Utilities and Entertainment.</p>
+              <span class="insight-metric-pill">Positive Trend</span>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">🔄</div>
+            <div class="insight-content">
+              <h4>Recurring Bills Scheduled</h4>
+              <p>You have 3 recurring subscriptions ($145.98 total) coming due over the next 7 days. Your checking balance is fully funded.</p>
+              <span class="insight-metric-pill">Upcoming Obligations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: RECENT TRANSACTIONS TABLE -->
+    <section class="section-spacing transactions-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Ledger Integrity</div>
+          <h2 class="section-title">Recent Transactions</h2>
+          <p class="section-subtitle">
+            Filter, search, and monitor every incoming and outgoing transaction recorded in your system.
+          </p>
+        </div>
+
+        <div class="transactions-card">
+          <div class="transactions-toolbar">
+            <!-- Filter Pills -->
+            <div class="tx-filter-pills">
+              <button class="tx-pill-btn active" data-filter="all">All Records</button>
+              <button class="tx-pill-btn" data-filter="expense">Expenses Only</button>
+              <button class="tx-pill-btn" data-filter="income">Income Only</button>
+            </div>
+
+            <!-- Search Box -->
+            <div class="tx-search-box">
+              <span>🔍</span>
+              <input type="text" id="txSearchInput" placeholder="Search by name or category...">
+            </div>
+
+            <!-- Sort Select -->
+            <div>
+              <select id="txSortSelect" class="form-select" style="padding:0.4rem 0.8rem; font-size:0.85rem;">
+                <option value="date-desc">Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="amount-desc">Highest Amount</option>
+                <option value="amount-asc">Lowest Amount</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Transaction Description</th>
+                  <th>Category</th>
+                  <th>Payment Method</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="recentTxBody">
+                <!-- Dynamically populated by JS from StacklyStore -->
+              </tbody>
+            </table>
+          </div>
+
+          <div style="padding: 1.25rem; text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--border-light);">
+            <a href="expenses.html" class="btn btn-outline btn-sm">Open Full Transaction Ledger →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: ANIMATED STATISTICS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number tabular-nums counter-anim" data-target="18450" data-suffix="+">0</div>
+            <div class="stat-label">Expenses Tracked</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number tabular-nums counter-anim" data-target="32">0</div>
+            <div class="stat-label">Smart Categories</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number tabular-nums counter-anim" data-target="4800" data-suffix="+">0</div>
+            <div class="stat-label">Budgets Configured</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number tabular-nums counter-anim" data-target="9200" data-suffix="+">0</div>
+            <div class="stat-label">Savings Goals Met</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number tabular-nums counter-anim" data-target="99.4" data-suffix="%" data-decimal="true">0</div>
+            <div class="stat-label">Ledger Accuracy Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: TESTIMONIALS SLIDER -->
+    <section class="section-spacing testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">User Stories</div>
+          <h2 class="section-title">Loved by Smart Budgeters</h2>
+          <p class="section-subtitle">
+            Discover how everyday professionals and freelancers transformed their financial confidence with Stackly.
+          </p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.85rem; margin-top: 1.25rem;">
+            <div style="display: flex; margin-right: 0.25rem;">
+              <img src="assets/images/avatar-1.webp" alt="Sarah Jenkins" width="36" height="36" style="border-radius: 50%; border: 2px solid #ffffff; margin-right: -10px; box-shadow: var(--shadow-sm); object-fit: cover;">
+              <img src="assets/images/avatar-2.webp" alt="Marcus Chen" width="36" height="36" style="border-radius: 50%; border: 2px solid #ffffff; margin-right: -10px; box-shadow: var(--shadow-sm); object-fit: cover;">
+              <img src="assets/images/avatar-3.webp" alt="Elena Rostova" width="36" height="36" style="border-radius: 50%; border: 2px solid #ffffff; margin-right: -10px; box-shadow: var(--shadow-sm); object-fit: cover;">
+              <img src="assets/images/avatar-4.webp" alt="David Miller" width="36" height="36" style="border-radius: 50%; border: 2px solid #ffffff; box-shadow: var(--shadow-sm); object-fit: cover;">
+            </div>
+            <span style="font-size: 0.92rem; font-weight: 700; color: var(--navy-900);">★ 4.9/5 from 18,000+ active budgeters</span>
+          </div>
+        </div>
+
+        <div class="testimonial-slider-container">
+          <div class="testimonial-track-wrap">
+            <!-- Slide 1 -->
+            <div class="testimonial-slide active">
+              <div class="testimonial-avatar-wrap">
+                <img src="assets/images/avatar-1.webp" alt="Sarah Jenkins" width="72" height="72">
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+              <blockquote class="testimonial-quote">
+                “Stackly completely dismantled my anxiety around freelance irregular income. The monthly budget alert at 72% helped me avoid overspending before invoices cleared!”
+              </blockquote>
+              <div class="testimonial-author-name">Sarah Jenkins</div>
+              <div class="testimonial-author-role">Freelance Senior Brand Designer</div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-slide">
+              <div class="testimonial-avatar-wrap">
+                <img src="assets/images/avatar-2.webp" alt="Marcus Chen" width="72" height="72">
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+              <blockquote class="testimonial-quote">
+                “The connected category breakdown and instant savings goal vaults made it effortless to set aside $12,000 for our emergency fund in just 9 months.”
+              </blockquote>
+              <div class="testimonial-author-name">Marcus Chen</div>
+              <div class="testimonial-author-role">Lead Software Engineer</div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-slide">
+              <div class="testimonial-avatar-wrap">
+                <img src="assets/images/avatar-3.webp" alt="Elena Rostova" width="72" height="72">
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+              <blockquote class="testimonial-quote">
+                “I tested half a dozen bloated budgeting tools. Stackly is the only platform that feels light, lightning-fast, and respects my data privacy without annoying ads.”
+              </blockquote>
+              <div class="testimonial-author-name">Elena Rostova</div>
+              <div class="testimonial-author-role">Small Business Founder</div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="testimonial-slide">
+              <div class="testimonial-avatar-wrap">
+                <img src="assets/images/avatar-4.webp" alt="David Miller" width="72" height="72">
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+              <blockquote class="testimonial-quote">
+                “Clean typography, razor-sharp cashflow visualizers, and seamless keyboard navigation. It has genuinely made tracking daily receipts enjoyable.”
+              </blockquote>
+              <div class="testimonial-author-name">David Miller</div>
+              <div class="testimonial-author-role">Financial Operations Analyst</div>
+            </div>
+          </div>
+
+          <!-- Slider Nav Controls -->
+          <div class="slider-controls">
+            <button class="slider-nav-btn slider-prev" aria-label="Previous Testimonial">‹</button>
+            <div class="slider-dots"></div>
+            <button class="slider-nav-btn slider-next" aria-label="Next Testimonial">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 14: FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <div class="section-pill" style="background:rgba(255,255,255,0.1); color:#ffffff; border-color:rgba(255,255,255,0.2);">
+            Start Today
+          </div>
+          <h2 class="cta-title">Start Building Better Spending Habits.</h2>
+          <p class="cta-subtitle">
+            Join thousands of proactive individuals and families taking control of their money with clean, modern financial clarity.
+          </p>
+          <div class="cta-buttons">
+            <a href="register.html" class="btn btn-emerald btn-lg">Start Tracking Free</a>
+            <a href="budget.html" class="btn btn-outline-white btn-lg">Create a Budget</a>
+            <a href="reports.html" class="btn btn-outline-white btn-lg">View Reports</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <!-- 4 Columns Main Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p>
+            Mobilizing intelligent financial tracking, automated category allocations, food security envelopes, and personalized wealth planning for modern life.
+          </p>
+                              <div class="footer-social-icons">
+            <a href="404.html" class="footer-social-circle" aria-label="LinkedIn Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.26.05-.53.13-.72a1.37 1.37 0 0 1 1.25-.92c.67 0 1.24.55 1.24 1.33v5.18h2.96z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="X (Twitter) Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="Instagram Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="YouTube Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Stackly</a>
+            <a href="features.html">Platform Features</a>
+            <a href="categories.html">Expense Categories</a>
+            <a href="expenses.html">Expense Management</a>
+            <a href="budget.html">Budget Planner</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <div class="footer-links-list">
+            <a href="contact.html">Contact Coordinates</a>
+            <a href="about.html#terms">Terms & Agreements</a>
+            <a href="about.html#security">Security Audits</a>
+            <a href="reports.html">Cashflow Reports</a>
+            <a href="savings-goals.html">Savings Vaults</a>
+            <a href="user-dashboard.html">User Dashboard</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-newsletter-col">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p>
+            Get quarterly financial updates, smart budgeting alerts, and platform feature reports.
+          </p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to Stackly updates!', 'success'); this.reset();">
+            <input type="email" placeholder="Your Email" class="footer-newsletter-input" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 Stackly. All rights reserved. Designed for financial clarity and wealth tracking.
+        </div>
+        <div class="footer-legal-links">
+          <a href="about.html#security">Privacy Policy</a>
+          <a href="about.html#terms">Terms of Service</a>
+          <a href="about.html#security">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

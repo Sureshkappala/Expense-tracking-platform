@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Outlay — Stackly Dashboard</title>
+  <meta name="description" content="Record a new expense disbursement into your ledger with instant budget feedback on Stackly.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    <!-- DASHBOARD DRAWER BACKDROP (MOBILE) -->
+    <div class="dashboard-drawer-backdrop"></div>
+
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dashboard-sidebar-header">
+        <a href="user-dashboard.html" class="brand-logo" aria-label="Stackly Dashboard">
+          <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar">&times;</button>
+      </div>
+
+      <nav class="dashboard-sidebar-menu">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:0.5rem 1rem;">Navigation</div>
+        <a href="user-dashboard.html" class="dash-nav-item">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="user-expenses.html" class="dash-nav-item">
+          <span>💳</span> My Expenses
+        </a>
+        <a href="user-add-expense.html" class="dash-nav-item active">
+          <span>➕</span> Add New Outlay
+        </a>
+        <a href="user-income.html" class="dash-nav-item">
+          <span>📈</span> Inflow & Salary
+        </a>
+        <a href="user-budget.html" class="dash-nav-item">
+          <span>🎯</span> Budget Planner
+        </a>
+        <a href="user-reports.html" class="dash-nav-item">
+          <span>📑</span> Reports & Analytics
+        </a>
+        <a href="user-savings-goals.html" class="dash-nav-item">
+          <span>🏆</span> Savings Goals
+        </a>
+
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; padding:1.25rem 1rem 0.5rem 1rem;">Platform</div>
+        <a href="contact.html" class="dash-nav-item">
+          <span>💬</span> Help & Support
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar-footer">
+        <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0.75rem; background:rgba(255,255,255,0.05); border-radius:var(--radius-md); margin-bottom:0.75rem;">
+          <img src="assets/images/avatar-1.webp" alt="Alex Vance" style="width:36px; height:36px; border-radius:50%;">
+          <div style="overflow:hidden;">
+            <div style="font-size:0.85rem; font-weight:700; color:#ffffff; white-space:nowrap; text-overflow:ellipsis;">Alex Vance</div>
+            <div style="font-size:0.75rem; color:var(--text-light);">Standard Member</div>
+          </div>
+        </div>
+        <a href="login.html" class="dash-nav-item" style="color:var(--rose-500); padding:0.5rem 0.75rem;">
+          <span>🚪</span> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <!-- TOPBAR -->
+      <header class="dashboard-topbar">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button id="dashboardSidebarToggle" class="hamburger-btn" aria-label="Toggle Dashboard Sidebar">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; color:var(--navy-900);">Record Expense Outlay</h2>
+            <span style="font-size:0.8rem; color:var(--text-muted);">Real-time budget validation and entry</span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <a href="user-expenses.html" class="btn btn-outline btn-sm">View All Expenses</a>
+          
+          <div style="position:relative;">
+            <button id="notifBellBtn" class="btn btn-icon btn-outline" aria-label="View Notifications">🔔</button>
+          </div>
+
+          <img src="assets/images/avatar-1.webp" alt="User Profile" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--teal-500);">
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <div class="dashboard-body">
+        <div style="display:grid; grid-template-columns: 1.25fr 0.95fr; gap:2rem; align-items:start;" class="contact-layout">
+          <!-- Left: Add Expense Form Card -->
+          <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:2rem; box-shadow:var(--shadow-md);" class="fin-card-box">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--navy-900); margin-bottom:1.25rem;">Transaction Details</h3>
+            <form id="dashAddExpenseForm" novalidate>
+              <!-- Expense Name -->
+              <div class="form-group">
+                <label for="expenseName" class="form-label">Expense Name / Merchant *</label>
+                <input type="text" id="expenseName" name="expenseName" class="form-input" placeholder="e.g. Organic Produce Market" required>
+                <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Letters and spaces only (no numbers).</span>
+              </div>
+
+              <!-- Amount & Category Grid -->
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                <div class="form-group">
+                  <label for="expenseAmount" class="form-label">Amount ($ USD) *</label>
+                  <input type="number" id="expenseAmount" name="amount" step="0.01" min="0.01" class="form-input" placeholder="e.g. 64.50" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="expenseCategory" class="form-label">Category *</label>
+                  <select id="expenseCategory" name="category" class="form-select" required>
+                    <option value="">Select Category...</option>
+                    <option value="Food & Dining">Food & Dining</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Utilities">Utilities & Bills</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Other">Other / Misc</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Date & Payment Method Grid -->
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                <div class="form-group">
+                  <label for="expenseDate" class="form-label">Date *</label>
+                  <input type="date" id="expenseDate" name="date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="expenseMethod" class="form-label">Payment Method</label>
+                  <select id="expenseMethod" name="method" class="form-select">
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Digital Wallet">Digital Wallet (Apple/Google Pay)</option>
+                    <option value="Cash">Cash</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Notes -->
+              <div class="form-group">
+                <label for="expenseNotes" class="form-label">Memo / Notes (Optional)</label>
+                <textarea id="expenseNotes" name="notes" class="form-textarea" rows="2" placeholder="e.g. Weekly family meal prep groceries"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%; font-weight:700;">Record Outlay to Ledger</button>
+            </form>
+          </div>
+
+          <!-- Right Column: Live Impact Preview & Quota Status -->
+          <div style="display:flex; flex-direction:column; gap:1.5rem;">
+            <!-- Live Impact Card -->
+            <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+              <h4 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin-bottom:1rem;">Live Budget Impact</h4>
+              
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem; font-size:0.9rem;">
+                <span>Monthly Budget Used:</span>
+                <strong id="previewBudgetPct" style="color:var(--amber-600);">72%</strong>
+              </div>
+              <div class="goal-progress-bar-wrap" style="height:10px; margin-bottom:1rem;">
+                <div class="goal-progress-fill" id="previewProgressBar" style="width:72%; background:var(--amber-500);"></div>
+              </div>
+
+              <div style="padding:1rem; background:var(--bg-secondary); border-radius:var(--radius-md); font-size:0.85rem; display:flex; flex-direction:column; gap:0.5rem;">
+                <div style="display:flex; justify-content:space-between;">
+                  <span style="color:var(--text-muted);">Current Outlays:</span>
+                  <strong>$996.09</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span style="color:var(--text-muted);">Monthly Limit:</span>
+                  <strong>$4,500.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-top:1px solid rgba(0,0,0,0.06); padding-top:0.4rem;">
+                  <span style="color:var(--text-muted);">Remaining Buffer:</span>
+                  <strong style="color:var(--emerald-600);">$3,503.91</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Best Practice Guidelines -->
+            <div style="background:var(--bg-primary); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:1.75rem; box-shadow:var(--shadow-sm);" class="fin-card-box">
+              <h4 style="font-size:1.1rem; font-weight:800; color:var(--navy-900); margin-bottom:0.75rem;">Budgeting Tips</h4>
+              <ul style="font-size:0.85rem; color:var(--text-muted); line-height:1.6; padding-left:1.2rem; margin:0;">
+                <li>Keep merchant titles concise and standardized for clear monthly aggregation.</li>
+                <li>Assign recurring utilities to their own envelope to prevent unexpected mid-month dips.</li>
+                <li>Transactions update your live dashboard and analytics charts in real time.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInp = document.getElementById('expenseDate');
+      if (dateInp) dateInp.value = new Date().toISOString().split('T')[0];
+
+      const form = document.getElementById('dashAddExpenseForm');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('expenseName').value.trim();
+          const amount = parseFloat(document.getElementById('expenseAmount').value);
+          const category = document.getElementById('expenseCategory').value;
+          const date = document.getElementById('expenseDate').value;
+          const method = document.getElementById('expenseMethod').value;
+          const notes = document.getElementById('expenseNotes').value.trim();
+
+          // Validate letters and spaces only
+          if (!/^[A-Za-z\s]+$/.test(name)) {
+            showToast('Expense name must contain letters and spaces only.', 'error');
+            return;
+          }
+
+          if (isNaN(amount) || amount <= 0) {
+            showToast('Amount must be a positive number greater than 0.', 'error');
+            return;
+          }
+
+          if (!category) {
+            showToast('Please choose an expense category.', 'error');
+            return;
+          }
+
+          StacklyStore.addTransaction({
+            name: name,
+            category: category,
+            amount: amount,
+            date: date,
+            method: method,
+            type: 'expense',
+            notes: notes
+          });
+
+          showToast(`Expense of $${amount.toFixed(2)} recorded to ${category}!`, 'success');
+          setTimeout(() => {
+            window.location.href = 'user-expenses.html';
+          }, 900);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

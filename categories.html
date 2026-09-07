@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Categories & Allocations — Stackly</title>
+  <meta name="description" content="Explore Stackly's 8 core expense categories, subcategory tags, recommended benchmarks, and interactive 50/30/20 allocation calculator.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+
+  <!-- STICKY NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+          <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="features.html" class="nav-link">Features</a>
+          <a href="categories.html" class="nav-link active">Expense Categories</a>
+          <a href="budget.html" class="nav-link">Budget</a>
+          <a href="reports.html" class="nav-link">Reports</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Desktop Action Buttons -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+      <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Menu">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+      </a>
+      <button class="mobile-drawer-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="features.html" class="mobile-nav-link">Features</a>
+      <a href="categories.html" class="mobile-nav-link active">Categories</a>
+      <a href="expenses.html" class="mobile-nav-link">Expenses</a>
+      <a href="budget.html" class="mobile-nav-link">Budget</a>
+      <a href="reports.html" class="mobile-nav-link">Reports</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="login.html" class="btn-drawer-login">Login</a>
+      <a href="register.html" class="btn-drawer-signup">Get Started</a>
+    </div>
+    <div class="mobile-drawer-search-wrap">
+      <input type="text" placeholder="Search resources..." class="mobile-drawer-search" aria-label="Search resources">
+    </div>
+    <div class="mobile-drawer-contact-info">
+      <div class="mobile-drawer-contact-title">Contact Info</div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Phone:</strong> <a href="tel:+18005557233">+1 (800) 555-SAFE</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Email:</strong> <a href="mailto:support@stackly.org">support@stackly.org</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Location:</strong> Salem, Tamil Nadu, India
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-section" style="padding: 4.5rem 0 3.5rem 0;">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="section-pill">Structured Envelopes</div>
+            <h1 class="hero-title">
+              Smart Expense <span class="highlight-teal">Categories</span> & Benchmarks.
+            </h1>
+            <p class="hero-description">
+              Organize every purchase into structured financial envelopes. Compare your real monthly spending against empirical benchmarks (like the 50/30/20 rule) to balance current lifestyle with future wealth.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#calculator" class="btn btn-emerald btn-lg">50/30/20 Allocation Calculator</a>
+              <a href="add-expense.html" class="btn btn-outline btn-lg">+ Log Categorized Outlay</a>
+            </div>
+          </div>
+          <div>
+            <img src="assets/images/category-budget-pacing.webp" alt="Expense Categories Donut Chart and Allocation Pacing on Laptop and Smartphone" width="1024" height="683" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: METRICS BAR -->
+    <section class="overview-metrics-section">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric-card card-expenses">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Total Outlays Categorized</span>
+              <div class="metric-card-icon">💳</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--amber-600);">$3,240.00</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-neutral">100% Assigned</span>
+              <span>zero uncategorized funds</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Active Core Categories</span>
+              <div class="metric-card-icon">🏷️</div>
+            </div>
+            <div class="metric-card-value tabular-nums">8 Envelopes</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">Standardized</span>
+              <span>supports custom tags</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Highest Weight Category</span>
+              <div class="metric-card-icon">🍽️</div>
+            </div>
+            <div class="metric-card-value" style="font-size:1.5rem;">Food & Dining</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-negative">28% Total Share</span>
+              <span>$890.00 monthly</span>
+            </div>
+          </div>
+
+          <div class="metric-card card-savings">
+            <div class="metric-card-top">
+              <span class="metric-card-label">Safe Buffer Categories</span>
+              <div class="metric-card-icon">🛡️</div>
+            </div>
+            <div class="metric-card-value tabular-nums" style="color:var(--emerald-600);">6 of 8</div>
+            <div class="metric-card-footer">
+              <span class="trend-badge trend-positive">Under 80% Cap</span>
+              <span>stable pacing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: DETAILED 8 CATEGORIES SHOWCASE -->
+    <section class="section-spacing" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-pill">Ledger Buckets</div>
+          <h2 class="section-title">The 8 Financial Envelopes</h2>
+          <p class="section-subtitle">
+            Each category features tailored subcategory tags, spending limits, and recommended income benchmarks.
+          </p>
+        </div>
+
+        <div class="categories-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          
+          <!-- Category 1: Food & Dining -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-food" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">🍽️</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Food & Dining</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 20–30% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--rose-600); background: var(--rose-50);">85% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$890.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$1,050.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 85%; background-color: #f97316;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Supermarket Groceries</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Restaurants & Takeout</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Coffee Shops & Bakeries</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Meal Kits</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$160.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Food Records →</a>
+            </div>
+          </div>
+
+          <!-- Category 2: Transportation -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-transport" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">🚗</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Transportation</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 10–15% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--emerald-600); background: var(--emerald-50);">68% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$460.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$680.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 68%; background-color: #0284c7;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Fuel & EV Charging</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Commuter Metro Passes</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Tolls & Parking</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Rideshare & Taxis</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$220.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Transit Records →</a>
+            </div>
+          </div>
+
+          <!-- Category 3: Shopping & Apparel -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-shopping" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">🛍️</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Shopping & Apparel</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 5–10% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--amber-600); background: var(--amber-50);">76% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$380.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$500.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 76%; background-color: #8b5cf6;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Clothing & Footwear</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Electronics & Gadgets</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Home Accessories</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Gifts</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$120.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Shopping Records →</a>
+            </div>
+          </div>
+
+          <!-- Category 4: Utilities & Bills -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-bills" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">⚡</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Utilities & Home Bills</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 5–10% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--rose-600); background: var(--rose-50);">92% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$580.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$630.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 92%; background-color: #ef4444;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Electric & Gas</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Fiber High-Speed Internet</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Water & Trash Utility</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Mobile Phone Contract</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--rose-600); font-weight: 700;">Caution: only $50.00 buffer remaining</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Utility Records →</a>
+            </div>
+          </div>
+
+          <!-- Category 5: Entertainment & Leisure -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-entertainment" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">🎬</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Entertainment & Leisure</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 5–10% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--emerald-600); background: var(--emerald-50);">72% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$290.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$400.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 72%; background-color: #ec4899;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Digital Streaming (Netflix/Spotify)</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Cinema & Theater</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Gaming & Subscriptions</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Concerts</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$110.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Entertainment →</a>
+            </div>
+          </div>
+
+          <!-- Category 6: Healthcare & Wellness -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-healthcare" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">💊</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Healthcare & Wellness</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 5–10% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--emerald-600); background: var(--emerald-50);">44% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$220.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$500.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 44%; background-color: #10b981;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Pharmacy & Prescriptions</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Dental & Vision Copays</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Gym & Fitness Clubs</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Mental Wellness</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$280.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Health Records →</a>
+            </div>
+          </div>
+
+          <!-- Category 7: Education & Career Growth -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-education" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">🎓</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Education & Learning</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 5–10% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--emerald-600); background: var(--emerald-50);">38% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$190.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$500.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 38%; background-color: #6366f1;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Online Certifications</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Industry Books & Textbooks</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Software Developer Tools</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Conferences</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$310.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Education Records →</a>
+            </div>
+          </div>
+
+          <!-- Category 8: Travel & Vacations -->
+          <div class="category-card" style="padding: 2rem;">
+            <div>
+              <div class="category-card-head">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                  <div class="category-icon-wrap category-icon-travel" style="width: 3.25rem; height: 3.25rem; font-size: 1.4rem;">✈️</div>
+                  <div>
+                    <h3 class="category-name" style="font-size: 1.25rem;">Travel & Trips</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Benchmark: 5–10% of net income</span>
+                  </div>
+                </div>
+                <span class="category-pct-badge" style="color: var(--emerald-600); background: var(--emerald-50);">46% Limit</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);" class="tabular-nums">$230.00</span>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">Monthly Cap: <strong>$500.00</strong></span>
+              </div>
+
+              <div class="category-progress-track" style="height: 8px;">
+                <div class="category-progress-fill" style="width: 46%; background-color: #14b8a6;"></div>
+              </div>
+
+              <div style="margin: 1.25rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+                <strong>Included Subcategories:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Flights & Airfare</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Hotel & Vacation Lodging</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Weekend Road Trips</span>
+                  <span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">Travel Insurance & Gear</span>
+                </div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">$270.00 buffer left this month</span>
+              <a href="expenses.html" class="category-footer-link">Inspect Travel Records →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE 50/30/20 ALLOCATION CALCULATOR -->
+    <section class="section-spacing" id="calculator" style="background-color: var(--bg-primary); border-bottom: 1px solid var(--border-light);">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <div class="section-pill">Interactive Financial Tool</div>
+          <h2 class="section-title">50/30/20 Category Allocation Calculator</h2>
+          <p class="section-subtitle">
+            Enter your monthly net take-home pay to calculate empirical envelope allocations based on time-tested personal finance principles.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md);" class="fin-card-box">
+          <div class="form-group" style="max-width: 400px; margin: 0 auto 2rem auto;">
+            <label for="monthlyIncomeCalcInput" class="form-label" style="text-align: center; font-size: 1rem;">Monthly Take-Home Income ($ USD)</label>
+            <div style="position: relative;">
+              <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-weight: 800; color: var(--navy-900);">$</span>
+              <input type="number" id="monthlyIncomeCalcInput" class="form-input" value="6650" min="500" step="100" style="padding-left: 2.25rem; font-size: 1.25rem; font-weight: 800; text-align: center;">
+            </div>
+          </div>
+
+          <!-- 3 Buckets Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; align-items: stretch;" class="contact-layout">
+            <!-- Needs (50%) -->
+            <div style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" class="fin-card-box">
+              <div>
+                <span class="section-pill" style="margin-bottom: 0.5rem; background: var(--teal-50); color: var(--teal-600);">50% Needs</span>
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.4rem;">Essential Living</h4>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--teal-600); margin-bottom: 0.5rem;" class="tabular-nums" id="needsCalcVal">$3,325.00</div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); min-height: 2.8rem; margin: 0; display: flex; align-items: center; justify-content: center;">
+                Housing, Utilities, Supermarket Groceries, Transit, Healthcare copays.
+              </p>
+            </div>
+
+            <!-- Wants (30%) -->
+            <div style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" class="fin-card-box">
+              <div>
+                <span class="section-pill" style="margin-bottom: 0.5rem; background: var(--amber-50); color: var(--amber-600);">30% Wants</span>
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.4rem;">Lifestyle & Leisure</h4>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--amber-600); margin-bottom: 0.5rem;" class="tabular-nums" id="wantsCalcVal">$1,995.00</div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); min-height: 2.8rem; margin: 0; display: flex; align-items: center; justify-content: center;">
+                Dining out, Shopping, Streaming, Concerts, Weekend Getaways.
+              </p>
+            </div>
+
+            <!-- Savings (20%) -->
+            <div style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" class="fin-card-box">
+              <div>
+                <span class="section-pill" style="margin-bottom: 0.5rem; background: var(--emerald-50); color: var(--emerald-600);">20% Savings</span>
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.4rem;">Future Wealth</h4>
+                <div style="font-size: 1.75rem; font-weight: 800; color: var(--emerald-600); margin-bottom: 0.5rem;" class="tabular-nums" id="savingsCalcVal">$1,330.00</div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); min-height: 2.8rem; margin: 0; display: flex; align-items: center; justify-content: center;">
+                Emergency cushion vaults, index funds, retirement, extra debt repayment.
+              </p>
+            </div>
+          </div>
+
+          <div style="text-align: center;">
+            <a href="budget.html" class="btn btn-navy btn-lg">Apply Recommended Caps to My Budget →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <div class="section-pill" style="background:rgba(255,255,255,0.1); color:#ffffff; border-color:rgba(255,255,255,0.2);">
+            Start Categorizing
+          </div>
+          <h2 class="cta-title">Bring Total Order to Your Spending.</h2>
+          <p class="cta-subtitle">
+            Say goodbye to disorganized bank statements. Categorize your expenses in seconds and protect your financial freedom with Stackly.
+          </p>
+          <div class="cta-buttons">
+            <a href="register.html" class="btn btn-emerald btn-lg">Get Started Free</a>
+            <a href="expenses.html" class="btn btn-outline-white btn-lg">View All Expenses</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <!-- 4 Columns Main Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p>
+            Mobilizing intelligent financial tracking, automated category allocations, food security envelopes, and personalized wealth planning for modern life.
+          </p>
+                              <div class="footer-social-icons">
+            <a href="404.html" class="footer-social-circle" aria-label="LinkedIn Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.26.05-.53.13-.72a1.37 1.37 0 0 1 1.25-.92c.67 0 1.24.55 1.24 1.33v5.18h2.96z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="X (Twitter) Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="Instagram Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="YouTube Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Stackly</a>
+            <a href="features.html">Platform Features</a>
+            <a href="categories.html">Expense Categories</a>
+            <a href="expenses.html">Expense Management</a>
+            <a href="budget.html">Budget Planner</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <div class="footer-links-list">
+            <a href="contact.html">Contact Coordinates</a>
+            <a href="about.html#terms">Terms & Agreements</a>
+            <a href="about.html#security">Security Audits</a>
+            <a href="reports.html">Cashflow Reports</a>
+            <a href="savings-goals.html">Savings Vaults</a>
+            <a href="user-dashboard.html">User Dashboard</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-newsletter-col">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p>
+            Get quarterly financial updates, smart budgeting alerts, and platform feature reports.
+          </p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to Stackly updates!', 'success'); this.reset();">
+            <input type="email" placeholder="Your Email" class="footer-newsletter-input" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 Stackly. All rights reserved. Designed for financial clarity and wealth tracking.
+        </div>
+        <div class="footer-legal-links">
+          <a href="about.html#security">Privacy Policy</a>
+          <a href="about.html#terms">Terms of Service</a>
+          <a href="about.html#security">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const incomeInput = document.getElementById('monthlyIncomeCalcInput');
+      const needsEl = document.getElementById('needsCalcVal');
+      const wantsEl = document.getElementById('wantsCalcVal');
+      const savingsEl = document.getElementById('savingsCalcVal');
+
+      function calculateAllocations() {
+        const income = parseFloat(incomeInput.value) || 0;
+        const needs = income * 0.50;
+        const wants = income * 0.30;
+        const savings = income * 0.20;
+
+        if (needsEl) needsEl.textContent = `$${needs.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (wantsEl) wantsEl.textContent = `$${wants.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (savingsEl) savingsEl.textContent = `$${savings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      }
+
+      if (incomeInput) {
+        incomeInput.addEventListener('input', calculateAllocations);
+      }
+      calculateAllocations();
+    });
+  </script>
+</body>
+</html>

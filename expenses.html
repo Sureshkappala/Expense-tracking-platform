@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expenses Management — Stackly</title>
+  <meta name="description" content="View, search, filter, and organize all your daily expenses with Stackly's interactive transaction ledger.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <div class="preloader-logo">STACKLY</div>
+    </div>
+  </div>
+
+
+  <!-- STICKY NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+          <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo-img">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="features.html" class="nav-link">Features</a>
+          <a href="categories.html" class="nav-link active">Expense Categories</a>
+          <a href="budget.html" class="nav-link">Budget</a>
+          <a href="reports.html" class="nav-link">Reports</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Desktop Action Buttons -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+      <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Menu">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+      </a>
+      <button class="mobile-drawer-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="features.html" class="mobile-nav-link">Features</a>
+      <a href="categories.html" class="mobile-nav-link">Categories</a>
+      <a href="expenses.html" class="mobile-nav-link active">Expenses</a>
+      <a href="budget.html" class="mobile-nav-link">Budget</a>
+      <a href="reports.html" class="mobile-nav-link">Reports</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="login.html" class="btn-drawer-login">Login</a>
+      <a href="register.html" class="btn-drawer-signup">Get Started</a>
+    </div>
+    <div class="mobile-drawer-search-wrap">
+      <input type="text" placeholder="Search resources..." class="mobile-drawer-search" aria-label="Search resources">
+    </div>
+    <div class="mobile-drawer-contact-info">
+      <div class="mobile-drawer-contact-title">Contact Info</div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Phone:</strong> <a href="tel:+18005557233">+1 (800) 555-SAFE</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Email:</strong> <a href="mailto:support@stackly.org">support@stackly.org</a>
+      </div>
+      <div class="mobile-drawer-contact-item">
+        <strong>Location:</strong> Salem, Tamil Nadu, India
+      </div>
+    </div>
+  </aside>
+
+  <main style="background-color: var(--bg-secondary); min-height: 85vh; padding: 2.5rem 0 4rem 0;">
+    <div class="container">
+      <!-- Top Title & Action Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:2rem;">
+        <div>
+          <div class="section-pill" style="margin-bottom:0.4rem;">Ledger Management</div>
+          <h1 style="font-size:2rem; font-weight:800; color:var(--navy-900);">Expenses & Outlays</h1>
+          <p style="color:var(--text-muted); font-size:0.95rem;">Review, filter, and audit every itemized disbursement in your financial ecosystem.</p>
+        </div>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <button id="exportCsvBtn" class="btn btn-outline">📥 Export CSV</button>
+          <a href="add-expense.html" class="btn btn-primary">+ Add New Expense</a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="metrics-grid" style="margin-bottom:2rem;">
+        <div class="metric-card card-expenses">
+          <div class="metric-card-top">
+            <span class="metric-card-label">September Outlays</span>
+            <div class="metric-card-icon">📉</div>
+          </div>
+          <div class="metric-card-value tabular-nums" style="color:var(--amber-600);">$3,240.00</div>
+          <div class="metric-card-footer">
+            <span class="trend-badge trend-negative">72% Budget</span>
+            <span>of $4,500 monthly limit</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-card-top">
+            <span class="metric-card-label">Daily Average Spend</span>
+            <div class="metric-card-icon">📅</div>
+          </div>
+          <div class="metric-card-value tabular-nums">$108.00</div>
+          <div class="metric-card-footer">
+            <span class="trend-badge trend-positive">▼ −4.2%</span>
+            <span>vs previous month</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-card-top">
+            <span class="metric-card-label">Leading Outlay Bucket</span>
+            <div class="metric-card-icon">🍽️</div>
+          </div>
+          <div class="metric-card-value" style="font-size:1.5rem;">Food & Dining</div>
+          <div class="metric-card-footer">
+            <span class="trend-badge trend-neutral">28% Share</span>
+            <span>$890.00 logged</span>
+          </div>
+        </div>
+
+        <div class="metric-card card-savings">
+          <div class="metric-card-top">
+            <span class="metric-card-label">Active Savings Buffer</span>
+            <div class="metric-card-icon">🛡️</div>
+          </div>
+          <div class="metric-card-value tabular-nums" style="color:var(--teal-600);">$1,260.00</div>
+          <div class="metric-card-footer">
+            <span class="trend-badge trend-positive">Safe Zone</span>
+            <span>remaining this month</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Controls Bar -->
+      <div class="transactions-card" style="margin-bottom: 2rem;">
+        <div class="transactions-toolbar" style="background:var(--bg-primary);">
+          <!-- Category Filter -->
+          <div style="display:flex; align-items:center; gap:0.5rem; flex-grow:1; max-width:240px;">
+            <label for="filterCategory" style="font-size:0.85rem; font-weight:600; color:var(--text-muted); white-space:nowrap;">Category:</label>
+            <select id="filterCategory" class="form-select" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              <option value="all">All Categories</option>
+              <option value="Food & Dining">Food & Dining</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Utilities">Utilities & Bills</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Education">Education</option>
+              <option value="Travel">Travel</option>
+            </select>
+          </div>
+
+          <!-- Payment Mode Filter -->
+          <div style="display:flex; align-items:center; gap:0.5rem; flex-grow:1; max-width:260px;">
+            <label for="filterPayment" style="font-size:0.85rem; font-weight:600; color:var(--text-muted); white-space:nowrap;">Payment:</label>
+            <select id="filterPayment" class="form-select" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              <option value="all">All Payment Methods</option>
+              <option value="Cash">Cash</option>
+              <option value="Debit Card">Debit Card</option>
+              <option value="Credit Card">Credit Card</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Digital Wallet">Digital Wallet</option>
+            </select>
+          </div>
+
+          <!-- Search Input -->
+          <div class="tx-search-box" style="flex-grow:1;">
+            <span>🔍</span>
+            <input type="text" id="expenseSearch" placeholder="Search expense description or note...">
+          </div>
+
+          <!-- Sort -->
+          <div>
+            <select id="expenseSort" class="form-select" style="padding:0.4rem 0.8rem; font-size:0.85rem;">
+              <option value="date-desc">Date (Newest)</option>
+              <option value="date-asc">Date (Oldest)</option>
+              <option value="amount-desc">Amount (Highest)</option>
+              <option value="amount-asc">Amount (Lowest)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table Display -->
+        <div class="table-responsive">
+          <table class="fin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Expense Item</th>
+                <th>Category</th>
+                <th>Payment Mode</th>
+                <th>Classification</th>
+                <th>Amount</th>
+                <th style="text-align:right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="expenseManagerTbody">
+              <!-- Rendered dynamically by script below -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Mobile Tracking Sync Banner -->
+      <div style="margin-top: 2.5rem; background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md);" class="fin-card-box">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; padding: 2.5rem;" class="contact-layout">
+          <div>
+            <div class="section-pill" style="margin-bottom: 0.5rem; background: var(--teal-50); color: var(--teal-600);">Mobile & Web Sync</div>
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--navy-900); margin-bottom: 0.75rem;">Track Your Spending Anywhere</h3>
+            <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; margin-bottom: 1.25rem;">
+              Capture expenses on the go with real-time category assignment and view rich interactive donut charts and bar graphs on any mobile device or tablet.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--navy-900); font-weight: 600; margin-bottom: 1.5rem;">
+              <div>✓ Instant synchronization with your master desktop ledger</div>
+              <div>✓ Visual breakdown across 8 standard expense categories</div>
+              <div>✓ Safe burn rate metrics to protect monthly savings</div>
+            </div>
+            <a href="add-expense.html" class="btn btn-emerald">+ Log Mobile Expense</a>
+          </div>
+          <div style="text-align: center;">
+            <img src="assets/images/track-spending.webp" alt="Track spending on mobile and desktop" width="1024" height="682" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <!-- 4 Columns Main Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/images/logo-white.webp" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p>
+            Mobilizing intelligent financial tracking, automated category allocations, food security envelopes, and personalized wealth planning for modern life.
+          </p>
+                              <div class="footer-social-icons">
+            <a href="404.html" class="footer-social-circle" aria-label="LinkedIn Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.26.05-.53.13-.72a1.37 1.37 0 0 1 1.25-.92c.67 0 1.24.55 1.24 1.33v5.18h2.96z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="X (Twitter) Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="Instagram Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-circle" aria-label="YouTube Link">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Stackly</a>
+            <a href="features.html">Platform Features</a>
+            <a href="categories.html">Expense Categories</a>
+            <a href="expenses.html">Expense Management</a>
+            <a href="budget.html">Budget Planner</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <div class="footer-links-list">
+            <a href="contact.html">Contact Coordinates</a>
+            <a href="about.html#terms">Terms & Agreements</a>
+            <a href="about.html#security">Security Audits</a>
+            <a href="reports.html">Cashflow Reports</a>
+            <a href="savings-goals.html">Savings Vaults</a>
+            <a href="user-dashboard.html">User Dashboard</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-newsletter-col">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p>
+            Get quarterly financial updates, smart budgeting alerts, and platform feature reports.
+          </p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to Stackly updates!', 'success'); this.reset();">
+            <input type="email" placeholder="Your Email" class="footer-newsletter-input" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 Stackly. All rights reserved. Designed for financial clarity and wealth tracking.
+        </div>
+        <div class="footer-legal-links">
+          <a href="about.html#security">Privacy Policy</a>
+          <a href="about.html#terms">Terms of Service</a>
+          <a href="about.html#security">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tbody = document.getElementById('expenseManagerTbody');
+      const catFilter = document.getElementById('filterCategory');
+      const payFilter = document.getElementById('filterPayment');
+      const searchInput = document.getElementById('expenseSearch');
+      const sortSelect = document.getElementById('expenseSort');
+      const exportCsvBtn = document.getElementById('exportCsvBtn');
+
+      function renderExpenses() {
+        let list = StacklyStore.getTransactions().filter(t => t.type === 'expense');
+
+        if (catFilter && catFilter.value !== 'all') {
+          list = list.filter(t => t.category === catFilter.value);
+        }
+
+        if (payFilter && payFilter.value !== 'all') {
+          list = list.filter(t => t.method === payFilter.value);
+        }
+
+        if (searchInput && searchInput.value.trim() !== '') {
+          const q = searchInput.value.toLowerCase().trim();
+          list = list.filter(t =>
+            t.name.toLowerCase().includes(q) ||
+            t.category.toLowerCase().includes(q) ||
+            (t.notes && t.notes.toLowerCase().includes(q))
+          );
+        }
+
+        if (sortSelect) {
+          const val = sortSelect.value;
+          if (val === 'date-desc') list.sort((a, b) => new Date(b.date) - new Date(a.date));
+          else if (val === 'date-asc') list.sort((a, b) => new Date(a.date) - new Date(b.date));
+          else if (val === 'amount-desc') list.sort((a, b) => b.amount - a.amount);
+          else if (val === 'amount-asc') list.sort((a, b) => a.amount - b.amount);
+        }
+
+        if (list.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:2.5rem; color:#94a3b8;">No matching expenses found. Click "+ Add New Expense" to create one.</td></tr>`;
+          return;
+        }
+
+        tbody.innerHTML = list.map(tx => `
+          <tr>
+            <td style="font-weight:600; color:#0f172a;">${tx.date}</td>
+            <td>
+              <div style="font-weight:700; color:#0f172a;">${tx.name}</div>
+              <div style="font-size:0.78rem; color:#64748b;">${tx.notes || '—'}</div>
+            </td>
+            <td><span class="section-pill" style="margin-bottom:0; font-size:0.75rem;">${tx.category}</span></td>
+            <td>${tx.method}</td>
+            <td>
+              <span class="tx-type-tag type-expense">− Expense</span>
+            </td>
+            <td class="tx-amount negative tabular-nums">−$${parseFloat(tx.amount).toFixed(2)}</td>
+            <td style="text-align:right;">
+              <button class="btn btn-sm btn-outline delete-tx-btn" data-id="${tx.id}" style="color:var(--rose-600); border-color:var(--rose-100);">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+
+        // Attach delete events
+        document.querySelectorAll('.delete-tx-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            StacklyStore.deleteTransaction(id);
+            showToast('Expense removed from ledger.', 'warning');
+            renderExpenses();
+          });
+        });
+      }
+
+      if (catFilter) catFilter.addEventListener('change', renderExpenses);
+      if (payFilter) payFilter.addEventListener('change', renderExpenses);
+      if (searchInput) searchInput.addEventListener('input', renderExpenses);
+      if (sortSelect) sortSelect.addEventListener('change', renderExpenses);
+
+      if (exportCsvBtn) {
+        exportCsvBtn.addEventListener('click', () => {
+          const list = StacklyStore.getTransactions().filter(t => t.type === 'expense');
+          let csv = 'Date,Expense Name,Category,Payment Method,Amount,Notes\n';
+          list.forEach(tx => {
+            csv += `"${tx.date}","${tx.name}","${tx.category}","${tx.method}","${tx.amount}","${tx.notes || ''}"\n`;
+          });
+          const blob = new Blob([csv], { type: 'text/csv' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `Stackly_Expenses_${new Date().toISOString().split('T')[0]}.csv`;
+          a.click();
+          showToast('Expense report exported as CSV!', 'success');
+        });
+      }
+
+      renderExpenses();
+    });
+  </script>
+</body>
+</html>
