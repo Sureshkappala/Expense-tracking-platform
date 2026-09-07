@@ -2824,7 +2824,7 @@ canvas#incomeExpenseChart {
   box-sizing: border-box !important;
 }
 
-/* VISIBLE GREEN CARD OUTER LINES ACROSS ALL PAGES */
+/* VISIBLE THICK GREEN CARD OUTER LINES ACROSS ALL PAGES */
 .metric-card,
 .category-card,
 .feature-box,
@@ -2844,8 +2844,11 @@ canvas#incomeExpenseChart {
 .fin-card-box,
 .resource-card,
 .faq-container,
-.budget-pacing-card {
-  border: 2px solid #10b981 !important;
+.budget-pacing-card,
+.pillars-grid > div {
+  outline: 3.5px solid #10b981 !important;
+  border: 3.5px solid #10b981 !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15) !important;
 }
 
 /* Ensure intermediate content inside cards flexes to push bottom actions evenly */
