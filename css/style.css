@@ -2824,6 +2824,30 @@ canvas#incomeExpenseChart {
   box-sizing: border-box !important;
 }
 
+/* VISIBLE GREEN CARD OUTER LINES ACROSS ALL PAGES */
+.metric-card,
+.category-card,
+.feature-box,
+.goal-card,
+.insight-card,
+.timeline-step-card,
+.step-card,
+.stat-box,
+.comparison-card,
+.transactions-card,
+.auth-card,
+.contact-info-card,
+.contact-form-card,
+.hero-visual-card,
+.hero-mockup-inner,
+.budget-box-container,
+.fin-card-box,
+.resource-card,
+.faq-container,
+.budget-pacing-card {
+  border: 2px solid #10b981 !important;
+}
+
 /* Ensure intermediate content inside cards flexes to push bottom actions evenly */
 .metric-card-top,
 .category-card-head,
