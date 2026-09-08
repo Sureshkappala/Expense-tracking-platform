@@ -143,7 +143,7 @@ const StacklyStore = (function () {
 })();
 
 // ==========================================
-// 1.5. PAGE PRELOADER FADE-OUT (3 Seconds Display)
+// 1.5. PAGE PRELOADER FADE-OUT (2 Seconds Display)
 // ==========================================
 (function initPreloader() {
   function hidePreloader() {
@@ -156,8 +156,8 @@ const StacklyStore = (function () {
     }
   }
 
-  // Preloader displays for exactly 3 seconds (3000ms) before smooth fade-out
-  setTimeout(hidePreloader, 3000);
+  // Preloader displays for exactly 2 seconds (2000ms) before smooth fade-out
+  setTimeout(hidePreloader, 2000);
 })();
 
 // ==========================================
