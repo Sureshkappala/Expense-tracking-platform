@@ -1006,7 +1006,9 @@ function init404ActionButtons() {
       btn.classList.contains('btn-error-home') ||
       btn.closest('.error-page-container') ||
       btn.id === 'dashboardSidebarToggle' ||
-      btn.id === 'closeDashboardSidebar'
+      btn.id === 'closeDashboardSidebar' ||
+      btn.classList.contains('back-to-home-btn') ||
+      btn.closest('.back-to-home-wrapper')
     ) {
       return;
     }
@@ -1030,7 +1032,9 @@ function init404ActionButtons() {
       href.includes('register.html') ||
       btn.closest('#loginForm') ||
       btn.closest('#registerForm') ||
-      btn.id === 'fillDemoCreds'
+      btn.id === 'fillDemoCreds' ||
+      btn.classList.contains('back-to-home-btn') ||
+      btn.closest('.back-to-home-wrapper')
     ) {
       return;
     }
