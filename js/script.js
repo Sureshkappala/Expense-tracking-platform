@@ -990,11 +990,18 @@ function init404ActionButtons() {
   if (window.location.pathname.endsWith('404.html')) return;
 
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link, .btn-drawer-login, .btn-drawer-signup');
+    const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link');
     if (!btn) return;
 
-    // Exclude menu toggles, password toggles, and 404 page buttons
+    const href = btn.getAttribute('href') || '';
+
+    // Exclude functional controls: Login & Register links, form submits, drawer toggles, password toggles
     if (
+      href.includes('login.html') ||
+      href.includes('register.html') ||
+      btn.type === 'submit' ||
+      btn.classList.contains('btn-drawer-login') ||
+      btn.classList.contains('btn-drawer-signup') ||
       btn.classList.contains('hamburger-btn') ||
       btn.classList.contains('password-toggle-btn') ||
       btn.classList.contains('sidebar-close-btn') ||
@@ -1002,13 +1009,16 @@ function init404ActionButtons() {
       btn.classList.contains('btn-error-back') ||
       btn.classList.contains('btn-error-home') ||
       btn.closest('.error-page-container') ||
+      btn.closest('#loginForm') ||
+      btn.closest('#registerForm') ||
+      btn.id === 'fillDemoCreds' ||
       btn.id === 'dashboardSidebarToggle' ||
       btn.id === 'closeDashboardSidebar'
     ) {
       return;
     }
 
-    // Redirect all action buttons across all pages to 404.html
+    // Redirect generic action buttons across all pages to 404.html
     e.preventDefault();
     window.location.href = '404.html';
   });
