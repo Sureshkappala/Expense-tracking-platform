@@ -143,12 +143,12 @@ const StacklyStore = (function () {
 })();
 
 // ==========================================
-// 1.5. PAGE PRELOADER FADE-OUT
+// 1.5. PAGE PRELOADER FADE-OUT (3 Seconds Display)
 // ==========================================
 (function initPreloader() {
   function hidePreloader() {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
+    if (preloader && !preloader.classList.contains('fade-out')) {
       preloader.classList.add('fade-out');
       setTimeout(() => {
         preloader.style.display = 'none';
@@ -156,15 +156,8 @@ const StacklyStore = (function () {
     }
   }
 
-  if (document.readyState === 'complete') {
-    hidePreloader();
-  } else {
-    window.addEventListener('load', hidePreloader);
-    document.addEventListener('DOMContentLoaded', () => setTimeout(hidePreloader, 300));
-  }
-
-  // Fallback safety timeout (forces fadeout after 1s max)
-  setTimeout(hidePreloader, 1000);
+  // Preloader displays for exactly 3 seconds (3000ms) before smooth fade-out
+  setTimeout(hidePreloader, 3000);
 })();
 
 // ==========================================
