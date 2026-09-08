@@ -990,18 +990,14 @@ function init404ActionButtons() {
   if (window.location.pathname.endsWith('404.html')) return;
 
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link');
+    const target = e.target;
+    const btn = target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link, a[href]');
     if (!btn) return;
 
     const href = btn.getAttribute('href') || '';
 
-    // Exclude functional controls: Login & Register links, form submits, drawer toggles, password toggles
+    // Exclude menu toggles and password toggles
     if (
-      href.includes('login.html') ||
-      href.includes('register.html') ||
-      btn.type === 'submit' ||
-      btn.classList.contains('btn-drawer-login') ||
-      btn.classList.contains('btn-drawer-signup') ||
       btn.classList.contains('hamburger-btn') ||
       btn.classList.contains('password-toggle-btn') ||
       btn.classList.contains('sidebar-close-btn') ||
@@ -1009,18 +1005,41 @@ function init404ActionButtons() {
       btn.classList.contains('btn-error-back') ||
       btn.classList.contains('btn-error-home') ||
       btn.closest('.error-page-container') ||
-      btn.closest('#loginForm') ||
-      btn.closest('#registerForm') ||
-      btn.id === 'fillDemoCreds' ||
       btn.id === 'dashboardSidebarToggle' ||
       btn.id === 'closeDashboardSidebar'
     ) {
       return;
     }
 
-    // Redirect generic action buttons across all pages to 404.html
-    e.preventDefault();
-    window.location.href = '404.html';
+    // Handle dashboard views (user-*.html & admin-*.html)
+    const isDashboardPage = window.location.pathname.includes('user-') || window.location.pathname.includes('admin-');
+    if (isDashboardPage) {
+      // Allow navigation on sidebar items
+      if (btn.closest('.dashboard-sidebar')) {
+        return;
+      }
+      // ALL inner buttons and links inside dashboard views redirect to 404.html
+      e.preventDefault();
+      window.location.href = '404.html';
+      return;
+    }
+
+    // Exclude login.html, register.html, and auth form submits on public auth pages
+    if (
+      href.includes('login.html') ||
+      href.includes('register.html') ||
+      btn.closest('#loginForm') ||
+      btn.closest('#registerForm') ||
+      btn.id === 'fillDemoCreds'
+    ) {
+      return;
+    }
+
+    // Redirect all generic action buttons on public pages to 404.html
+    if (btn.matches('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link')) {
+      e.preventDefault();
+      window.location.href = '404.html';
+    }
   });
 }
 
