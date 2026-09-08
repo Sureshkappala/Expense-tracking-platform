@@ -348,9 +348,9 @@ ul, ol {
 }
 
 .brand-logo-img {
-  height: 38px;
+  height: 52px;
   width: auto;
-  max-width: 145px;
+  max-width: 185px;
   display: block;
   object-fit: contain;
   filter: invert(38%) sepia(85%) saturate(1450%) hue-rotate(130deg) brightness(92%) contrast(101%) drop-shadow(0 2px 10px rgba(16, 185, 129, 0.35));
@@ -370,8 +370,8 @@ ul, ol {
 }
 
 .brand-logo-icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.85rem;
+  height: 2.85rem;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, var(--navy-900), var(--teal-600));
@@ -915,8 +915,8 @@ ul, ol {
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: 0 30px 60px -15px rgba(6, 14, 26, 0.45);
-  border: 3.5px solid #10b981 !important;
-  outline: 3.5px solid #10b981 !important;
+  border: 1.5px solid #10b981 !important;
+  outline: 1.5px solid #10b981 !important;
   background: var(--navy-950);
   transform: perspective(1000px) rotateY(-3.5deg) rotateX(1.5deg);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3017,6 +3017,11 @@ canvas#incomeExpenseChart {
 .goal-card,
 .insight-card,
 .timeline-step-card,
+.metric-card,
+.category-card,
+.feature-box,
+.goal-card,
+.insight-card,
 .step-card,
 .stat-box,
 .comparison-card,
@@ -3032,9 +3037,33 @@ canvas#incomeExpenseChart {
 .faq-container,
 .budget-pacing-card,
 .pillars-grid > div {
-  outline: 3.5px solid #10b981 !important;
-  border: 3.5px solid #10b981 !important;
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15) !important;
+  outline: 1.5px solid #10b981 !important;
+  border: 1.5px solid #10b981 !important;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12) !important;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.metric-card:hover,
+.category-card:hover,
+.feature-box:hover,
+.goal-card:hover,
+.insight-card:hover,
+.step-card:hover,
+.stat-box:hover,
+.comparison-card:hover,
+.transactions-card:hover,
+.contact-info-card:hover,
+.contact-form-card:hover,
+.hero-visual-card:hover,
+.budget-box-container:hover,
+.fin-card-box:hover,
+.resource-card:hover,
+.faq-container:hover,
+.budget-pacing-card:hover,
+.pillars-grid > div:hover {
+  transform: translateY(-5px) !important;
+  outline: 2px solid #10b981 !important;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.25) !important;
 }
 
 /* Ensure intermediate content inside cards flexes to push bottom actions evenly */

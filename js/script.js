@@ -932,6 +932,85 @@ function initSavingsGoalActions() {
     form.reset();
     setTimeout(() => window.location.reload(), 1200);
   });
+// ==========================================
+// 12.5. REAL-TIME INPUT SANITIZATION & 404 BUTTON ROUTING
+// ==========================================
+function initRealtimeFormSanitization() {
+  document.addEventListener('input', (e) => {
+    const target = e.target;
+    if (!target) return;
+
+    // Sanitize Name inputs: allow letters & spaces only (strip numbers)
+    if (
+      target.classList.contains('input-name') ||
+      target.name === 'fullName' ||
+      target.name === 'name' ||
+      target.id === 'regFullName' ||
+      target.id === 'contact-name'
+    ) {
+      if (/[0-9]/.test(target.value)) {
+        target.value = target.value.replace(/[0-9]/g, '');
+        if (typeof showToast === 'function') {
+          showToast('Name fields allow letters and spaces only (numbers are blocked).', 'warning');
+        }
+      }
+    }
+
+    // Sanitize Phone inputs: allow digits and phone symbols only (strip letters)
+    if (
+      target.classList.contains('input-phone') ||
+      target.name === 'mobile' ||
+      target.name === 'phone' ||
+      target.id === 'regMobile' ||
+      target.id === 'contact-mobile' ||
+      target.type === 'tel'
+    ) {
+      if (/[a-zA-Z]/.test(target.value)) {
+        target.value = target.value.replace(/[a-zA-Z]/g, '');
+        if (typeof showToast === 'function') {
+          showToast('Phone fields allow digits only (letters are blocked).', 'warning');
+        }
+      }
+    }
+  });
+}
+
+function init404ActionButtons() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn');
+    if (!btn) return;
+
+    // Exclude functional controls: form submits, drawer/sidebar toggles, password toggles, modal open/close
+    if (
+      btn.type === 'submit' ||
+      btn.classList.contains('hamburger-btn') ||
+      btn.classList.contains('password-toggle-btn') ||
+      btn.classList.contains('sidebar-close-btn') ||
+      btn.id === 'fillDemoCreds' ||
+      btn.dataset.goalId ||
+      btn.id === 'closeForgotModal' ||
+      btn.id === 'cancelForgotBtn' ||
+      btn.id === 'sendResetBtn' ||
+      btn.id === 'dashboardSidebarToggle' ||
+      btn.id === 'closeDashboardSidebar'
+    ) {
+      return;
+    }
+
+    // Redirect standalone action buttons and placeholder action links to 404.html
+    const href = btn.getAttribute('href');
+    if (btn.tagName === 'A') {
+      if (href === '#' || href === '404.html' || href === 'javascript:void(0)' || btn.classList.contains('btn-404')) {
+        e.preventDefault();
+        window.location.href = '404.html';
+      }
+    } else if (btn.tagName === 'BUTTON' && (btn.type === 'button' || !btn.type)) {
+      if (!btn.closest('.modal-window')) {
+        e.preventDefault();
+        window.location.href = '404.html';
+      }
+    }
+  });
 }
 
 // ==========================================
@@ -949,6 +1028,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initNumberCounters();
   initTransactionFilters();
   initSavingsGoalActions();
+  initRealtimeFormSanitization();
+  init404ActionButtons();
 
   // Handle Add Expense Form on add-expense.html
   attachFormValidation('#addExpenseForm', (data, form) => {

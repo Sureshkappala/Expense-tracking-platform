@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login to Stackly — Secure Financial Portal</title>
   <meta name="description" content="Sign in to your Stackly personal finance dashboard to track daily expenses and savings goals.">
-  <link rel="stylesheet" href="css/style.css?v=7.0">
+  <link rel="stylesheet" href="css/style.css?v=8.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -51,26 +51,26 @@
         <div class="form-group">
           <label for="loginRole" class="form-label">Select Workspace Role *</label>
           <select id="loginRole" class="form-select" required>
-            <option value="user-dashboard.html">Client User Dashboard</option>
-            <option value="admin-dashboard.html">System Administrator Console</option>
+            <option value="user-dashboard.html">Personal Wealth Account / Individual Budgeter</option>
+            <option value="admin-dashboard.html">Chief Financial Officer / System Administrator</option>
           </select>
         </div>
 
         <!-- Email -->
         <div class="form-group">
           <label for="loginEmail" class="form-label">Email Address *</label>
-          <input type="email" id="loginEmail" name="email" class="form-input" placeholder="name@domain.com" required>
+          <input type="email" id="loginEmail" name="email" class="form-input" placeholder="name@domain.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
         </div>
 
         <!-- Password -->
         <div class="form-group">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-            <label for="loginPassword" class="form-label" style="margin-bottom:0;">Password *</label>
-            <a href="javascript:void(0)" id="forgotPwdLink" style="font-size:0.8rem; color:var(--teal-600); font-weight:600;">Forgot?</a>
-          </div>
+          <label for="loginPassword" class="form-label">Password *</label>
           <div class="password-input-wrap">
             <input type="password" id="loginPassword" name="password" class="form-input" placeholder="••••••••" required>
             <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <div style="text-align: right; margin-top: 0.5rem;">
+            <a href="404.html" id="forgotPwdLink" style="font-size:0.85rem; color:#10b981; font-weight:600; text-decoration:none;">Forgot Password?</a>
           </div>
         </div>
 

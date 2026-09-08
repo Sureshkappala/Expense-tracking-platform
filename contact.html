@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact & Support Desk — Stackly</title>
   <meta name="description" content="Reach the Stackly personal finance team for questions, feature requests, or technical support.">
-  <link rel="stylesheet" href="css/style.css?v=7.0">
+  <link rel="stylesheet" href="css/style.css?v=8.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -178,17 +178,19 @@
           <form id="contactForm" novalidate>
             <div class="form-group">
               <label class="form-label" for="contact-name">Full Name *</label>
-              <input type="text" id="contact-name" name="fullName" class="form-input" placeholder="John Doe" required>
+              <input type="text" id="contact-name" name="fullName" class="form-input input-name" placeholder="John Doe" pattern="[A-Za-z\s]+" title="Full Name must contain letters and spaces only (no numbers allowed)" required>
+              <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Letters and spaces only (numbers are strictly blocked).</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contact-email">Email Address *</label>
-              <input type="email" id="contact-email" name="email" class="form-input" placeholder="john@domain.com" required>
+              <input type="email" id="contact-email" name="email" class="form-input" placeholder="USERNAME@GMAIL.COM" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email format, e.g. USERNAME@GMAIL.COM" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contact-mobile">Mobile Number *</label>
-              <input type="text" id="contact-mobile" name="mobile" class="form-input" placeholder="Numbers only (e.g. 10 digits)" required>
+              <input type="tel" id="contact-mobile" name="mobile" class="form-input input-phone" placeholder="Numbers only (e.g. 10 digits)" pattern="[\d\s\+\-\(\)]+" title="Mobile Number must contain digits only (letters are strictly blocked)" required>
+              <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Digits only (letters are strictly blocked).</span>
             </div>
 
             <div class="form-group">

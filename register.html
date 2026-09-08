@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Free Account — Stackly</title>
   <meta name="description" content="Sign up for Stackly and start mastering your personal finances, expense allocations, and savings targets today.">
-  <link rel="stylesheet" href="css/style.css?v=7.0">
+  <link rel="stylesheet" href="css/style.css?v=8.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -51,21 +51,21 @@
         <!-- Full Name -->
         <div class="form-group">
           <label for="regFullName" class="form-label">Full Name *</label>
-          <input type="text" id="regFullName" name="fullName" class="form-input" placeholder="e.g. Jordan Mitchell" required>
-          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Letters and spaces only (no numbers).</span>
+          <input type="text" id="regFullName" name="fullName" class="form-input input-name" placeholder="e.g. Jordan Mitchell" pattern="[A-Za-z\s]+" title="Full Name must contain letters and spaces only (no numbers allowed)" required>
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Letters and spaces only (numbers are strictly blocked).</span>
         </div>
 
         <!-- Email -->
         <div class="form-group">
           <label for="regEmail" class="form-label">Email Address *</label>
-          <input type="email" id="regEmail" name="email" class="form-input" placeholder="jordan@example.com" required>
+          <input type="email" id="regEmail" name="email" class="form-input" placeholder="USERNAME@GMAIL.COM" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email format, e.g. USERNAME@GMAIL.COM" required>
         </div>
 
         <!-- Mobile Number -->
         <div class="form-group">
           <label for="regMobile" class="form-label">Mobile Number *</label>
-          <input type="tel" id="regMobile" name="mobile" class="form-input" placeholder="+1 (555) 019-2834" required>
-          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Used for critical budget overspending SMS alerts.</span>
+          <input type="tel" id="regMobile" name="mobile" class="form-input input-phone" placeholder="+1 (555) 019-2834" pattern="[\d\s\+\-\(\)]+" title="Mobile number must contain digits only (letters are strictly blocked)" required>
+          <span style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; display:block;">Digits only (letters are strictly blocked).</span>
         </div>
 
         <!-- Password -->
