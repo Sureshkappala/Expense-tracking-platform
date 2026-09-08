@@ -978,39 +978,24 @@ function initRealtimeFormSanitization() {
 
 function init404ActionButtons() {
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn');
+    const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link, .btn-drawer-login, .btn-drawer-signup');
     if (!btn) return;
 
-    // Exclude functional controls: form submits, drawer/sidebar toggles, password toggles, modal open/close
+    // Exclude menu toggles and password toggles
     if (
-      btn.type === 'submit' ||
       btn.classList.contains('hamburger-btn') ||
       btn.classList.contains('password-toggle-btn') ||
       btn.classList.contains('sidebar-close-btn') ||
-      btn.id === 'fillDemoCreds' ||
-      btn.dataset.goalId ||
-      btn.id === 'closeForgotModal' ||
-      btn.id === 'cancelForgotBtn' ||
-      btn.id === 'sendResetBtn' ||
+      btn.classList.contains('mobile-drawer-close') ||
       btn.id === 'dashboardSidebarToggle' ||
       btn.id === 'closeDashboardSidebar'
     ) {
       return;
     }
 
-    // Redirect standalone action buttons and placeholder action links to 404.html
-    const href = btn.getAttribute('href');
-    if (btn.tagName === 'A') {
-      if (href === '#' || href === '404.html' || href === 'javascript:void(0)' || btn.classList.contains('btn-404')) {
-        e.preventDefault();
-        window.location.href = '404.html';
-      }
-    } else if (btn.tagName === 'BUTTON' && (btn.type === 'button' || !btn.type)) {
-      if (!btn.closest('.modal-window')) {
-        e.preventDefault();
-        window.location.href = '404.html';
-      }
-    }
+    // Redirect all action buttons across all pages to 404.html
+    e.preventDefault();
+    window.location.href = '404.html';
   });
 }
 
