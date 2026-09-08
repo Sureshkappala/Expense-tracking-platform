@@ -976,17 +976,32 @@ function initRealtimeFormSanitization() {
   });
 }
 
+// Smart Go Back / Home navigation function for 404 page
+function goBackOrHome() {
+  if (document.referrer && document.referrer !== window.location.href && !document.referrer.includes('404.html')) {
+    window.history.back();
+  } else {
+    window.location.href = 'index.html';
+  }
+}
+
 function init404ActionButtons() {
+  // Do NOT run 404 redirect interceptor on 404.html itself
+  if (window.location.pathname.endsWith('404.html')) return;
+
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('button, .btn, .btn-action, .btn-primary, .btn-secondary, .btn-emerald, .btn-outline, .btn-footer-accent, .btn-footer-dark, .action-btn, .category-footer-link, .btn-drawer-login, .btn-drawer-signup');
     if (!btn) return;
 
-    // Exclude menu toggles and password toggles
+    // Exclude menu toggles, password toggles, and 404 page buttons
     if (
       btn.classList.contains('hamburger-btn') ||
       btn.classList.contains('password-toggle-btn') ||
       btn.classList.contains('sidebar-close-btn') ||
       btn.classList.contains('mobile-drawer-close') ||
+      btn.classList.contains('btn-error-back') ||
+      btn.classList.contains('btn-error-home') ||
+      btn.closest('.error-page-container') ||
       btn.id === 'dashboardSidebarToggle' ||
       btn.id === 'closeDashboardSidebar'
     ) {
