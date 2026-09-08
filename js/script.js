@@ -148,17 +148,23 @@ const StacklyStore = (function () {
 (function initPreloader() {
   function hidePreloader() {
     const preloader = document.getElementById('preloader');
-    if (preloader && !preloader.classList.contains('fade-out')) {
+    if (preloader) {
       preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 400);
     }
   }
 
-  window.addEventListener('load', () => {
-    setTimeout(hidePreloader, 800);
-  });
+  if (document.readyState === 'complete') {
+    hidePreloader();
+  } else {
+    window.addEventListener('load', hidePreloader);
+    document.addEventListener('DOMContentLoaded', () => setTimeout(hidePreloader, 300));
+  }
 
-  // Fallback safety timeout (forces fadeout after 2.5s)
-  setTimeout(hidePreloader, 2500);
+  // Fallback safety timeout (forces fadeout after 1s max)
+  setTimeout(hidePreloader, 1000);
 })();
 
 // ==========================================
@@ -932,6 +938,8 @@ function initSavingsGoalActions() {
     form.reset();
     setTimeout(() => window.location.reload(), 1200);
   });
+}
+
 // ==========================================
 // 12.5. REAL-TIME INPUT SANITIZATION & 404 BUTTON ROUTING
 // ==========================================
